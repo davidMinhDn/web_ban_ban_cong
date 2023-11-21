@@ -8,7 +8,7 @@
     <meta name="description" content="Fastkart">
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" th:href="@{/images/favicon/1.png}" type="image/x-icon">
     <title>Register</title>
 
     <!-- Google font -->
@@ -18,16 +18,27 @@
         rel="stylesheet">
 
     <!-- bootstrap css -->
-    <link id="rtl-link" rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link id="rtl-link" rel="stylesheet" type="text/css" th:href="@{/css/vendors/bootstrap.css}">
 
     <!-- font-awesome css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/font-awesome.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/font-awesome.css}">
 
     <!-- feather icon css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/feather-icon.css}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color-link" rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <style>
+        .error-message {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: red;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -86,28 +97,28 @@
                                 <div class="dropdown theme-form-select">
                                     <button class="btn dropdown-toggle" type="button" id="select-language"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../assets/images/country/united-states.png"
+                                        <img th:src="@{/images/country/united-states.png}"
                                             class="img-fluid blur-up lazyload" alt="">
                                         <span>English</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="select-language">
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="english">
-                                                <img src="../assets/images/country/united-kingdom.png"
+                                                <img th:src="@{/images/country/united-kingdom.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>English</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="france">
-                                                <img src="../assets/images/country/germany.png"
+                                                <img th:src="@{/images/country/germany.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Germany</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="chinese">
-                                                <img src="../assets/images/country/turkish.png"
+                                                <img th:src="@{/images/country/turkish.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Turki</span>
                                             </a>
@@ -153,7 +164,7 @@
                                 </span>
                             </button>
                             <a href="index.html" class="web-logo nav-logo">
-                                <img src="../assets/images/logo/1.png" class="img-fluid blur-up lazyload" alt="">
+                                <img th:src="@{/images/logo/1.png}" class="img-fluid blur-up lazyload" alt="">
                             </a>
 
                             <div class="middle-box">
@@ -231,7 +242,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/1.png"
+                                                                <img th:src="@{/images/vegetable/product/1.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -250,7 +261,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/2.png"
+                                                                <img th:src="@{/images/vegetable/product/2.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -338,7 +349,7 @@
                                 <ul class="category-list">
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/vegetable.svg" alt="">
+                                            <img th:src="@{/svg/1/vegetable.svg}" alt="">
                                             <h6>Vegetables & Fruit</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -406,7 +417,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/cup.svg" alt="">
+                                            <img th:src="@{/svg/1/cup.svg}" alt="">
                                             <h6>Beverages</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -445,7 +456,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/meats.svg" alt="">
+                                            <img th:src="@{/svg/1/meats.svg}" alt="">
                                             <h6>Meats & Seafood</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -504,7 +515,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/breakfast.svg" alt="">
+                                            <img th:src="@{/svg/1/breakfast.svg}" alt="">
                                             <h6>Breakfast & Dairy</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -578,7 +589,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/frozen.svg" alt="">
+                                            <img th:src="@{/svg/1/frozen.svg}" alt="">
                                             <h6>Frozen Foods</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -611,7 +622,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/biscuit.svg" alt="">
+                                            <img th:src="@{/svg/1/biscuit.svg}" alt="">
                                             <h6>Biscuits & Snacks</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -664,7 +675,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/grocery.svg" alt="">
+                                            <img th:src="@{/svg/1/grocery.svg}" alt="">
                                             <h6>Grocery & Staples</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -1159,7 +1170,7 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
                     <div class="image-contain">
-                        <img src="../assets/images/inner-page/sign-up.png" class="img-fluid" alt="">
+                        <img th:src="@{/images/inner-page/sign-up.png}" class="img-fluid" alt="">
                     </div>
                 </div>
 
@@ -1171,35 +1182,29 @@
                         </div>
 
                         <div class="input-box">
-                            <form class="row g-4">
+                            <form class="row g-4" th:action="@{/user/register}" th:object="${userDTO}" method="post" onsubmit="return validateForm()">
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" class="form-control" id="fullname" placeholder="Full Name">
+                                        <input type="text" class="form-control" th:field="*{userName}" id="fullname" placeholder="Full Name">
                                         <label for="fullname">Full Name</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" class="form-control" id="phone" placeholder="Phone">
-                                        <label for="phone">Phone</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating theme-form-floating">
-                                        <input type="date" class="form-control" id="dob" placeholder="dob">
+                                        <input type="date" class="form-control" th:field="*{dob}" id="dob" placeholder="dob">
                                         <label for="dob">Date Of Birth</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                        <input type="email" th:field="*{mail}" class="form-control" id="email" placeholder="Email Address">
                                         <label for="email">Email Address</label>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" class="form-control" id="password"
+                                        <input type="password" class="form-control" th:field="*{password}" id="password"
                                             placeholder="Password">
                                         <label for="password">Password</label>
                                     </div>
@@ -1209,13 +1214,16 @@
                                     <div class="forgot-box">
                                         <div class="form-check ps-0 m-0 remember-box">
                                             <input class="checkbox_animated check-box" type="checkbox"
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">I agree with
+                                                   id="agreeCheckbox" required>
+                                            <label class="form-check-label" for="agreeCheckbox"  >I agree with
                                                 <span>Terms</span> and <span>Privacy</span></label>
                                         </div>
+
                                     </div>
                                 </div>
-
+                                <li th:each="item : ${errors}">
+                                    <h2 style="background-color:#f8f9fa" class="error-message" th:text="${item}"></h2>
+                                </li>
                                 <div class="col-12">
                                     <button class="btn btn-animation w-100" type="submit">Sign Up</button>
                                 </div>
@@ -1231,14 +1239,14 @@
                                 <li>
                                     <a href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin"
                                         class="btn google-button w-100">
-                                        <img src="../assets/images/inner-page/google.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/inner-page/google.png}" class="blur-up lazyload"
                                             alt="">
                                         Sign up with Google
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.facebook.com/" class="btn google-button w-100">
-                                        <img src="../assets/images/inner-page/facebook.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/inner-page/facebook.png}" class="blur-up lazyload"
                                             alt=""> Sign up with Facebook
                                     </a>
                                 </li>
@@ -1277,26 +1285,26 @@
     <!-- Bg overlay End -->
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bootstrap/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/bootstrap/popper.min.js}"></script>
 
     <!-- feather icon js-->
-    <script src="../assets/js/feather/feather.min.js"></script>
-    <script src="../assets/js/feather/feather-icon.js"></script>
+    <script th:src="@{/js/feather/feather.min.js}"></script>
+    <script th:src="@{/js/feather/feather-icon.js}"></script>
 
     <!-- Slick js-->
-    <script src="../assets/js/slick/slick.js"></script>
-    <script src="../assets/js/slick/slick-animation.min.js"></script>
-    <script src="../assets/js/slick/custom_slick.js"></script>
+    <script th:src="@{/js/slick/slick.js}"></script>
+    <script th:src="@{/js/slick/slick-animation.min.js}"></script>
+    <script th:src="@{/js/slick/custom_slick.js}"></script>
 
     <!-- Lazyload Js -->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script th:src="@{/js/lazysizes.min.js}"></script>
 
     <!-- script js -->
-    <script src="../assets/js/script.js"></script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>

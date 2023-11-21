@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,7 +19,8 @@ public class UserDTO {
     @NotBlank(message = "name cannot be blank")
     private String name;
 
-    @Past(message = "Date of birth must be in the past")
+    @Past
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
     @NotBlank(message = "Email number is required")

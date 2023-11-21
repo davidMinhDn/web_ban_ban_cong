@@ -8,7 +8,7 @@
     <meta name="description" content="Fastkart">
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" th:href="@{/images/favicon/1.png}" type="image/x-icon">
     <title>OTP</title>
 
     <!-- Google font -->
@@ -18,23 +18,23 @@
         rel="stylesheet">
 
     <!-- bootstrap css -->
-    <link id="rtl-link" rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link id="rtl-link" rel="stylesheet" type="text/css" th:href="@{/css/vendors/bootstrap.css}">
 
     <!-- font-awesome css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/font-awesome.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/font-awesome.css}">
 
     <!-- feather icon css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/feather-icon.css}">
 
     <!-- slick css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/slick/slick-theme.css}">
 
     <!-- Iconly css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bulk-style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bulk-style.css}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color-link" rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -93,28 +93,28 @@
                                 <div class="dropdown theme-form-select">
                                     <button class="btn dropdown-toggle" type="button" id="select-language"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../assets/images/country/united-states.png"
+                                        <img th:src="@{/images/country/united-states.png}"
                                             class="img-fluid blur-up lazyload" alt="">
                                         <span>English</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="select-language">
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="english">
-                                                <img src="../assets/images/country/united-kingdom.png"
+                                                <img th:src="@{/images/country/united-kingdom.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>English</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="france">
-                                                <img src="../assets/images/country/germany.png"
+                                                <img th:src="@{/images/country/germany.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Germany</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="chinese">
-                                                <img src="../assets/images/country/turkish.png"
+                                                <img th:src="@{/images/country/turkish.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Turki</span>
                                             </a>
@@ -160,7 +160,7 @@
                                 </span>
                             </button>
                             <a href="index.html" class="web-logo nav-logo">
-                                <img src="../assets/images/logo/1.png" class="img-fluid blur-up lazyload" alt="">
+                                <img th:src="@{/images/logo/1.png}" class="img-fluid blur-up lazyload" alt="">
                             </a>
 
                             <div class="middle-box">
@@ -238,7 +238,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/1.png"
+                                                                <img th:src="@{/images/vegetable/product/1.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -257,7 +257,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/2.png"
+                                                                <img th:src="@{/images/vegetable/product/2.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -345,7 +345,7 @@
                                 <ul class="category-list">
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/vegetable.svg" alt="">
+                                            <img th:src="@{/svg/1/vegetable.svg}" alt="">
                                             <h6>Vegetables & Fruit</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -413,7 +413,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/cup.svg" alt="">
+                                            <img th:src="@{/svg/1/cup.svg}" alt="">
                                             <h6>Beverages</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -452,7 +452,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/meats.svg" alt="">
+                                            <img th:src="@{/svg/1/meats.svg}" alt="">
                                             <h6>Meats & Seafood</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -511,7 +511,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/breakfast.svg" alt="">
+                                            <img th:src="@{/svg/1/breakfast.svg}" alt="">
                                             <h6>Breakfast & Dairy</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -585,7 +585,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/frozen.svg" alt="">
+                                            <img th:src="@{/svg/1/frozen.svg}" alt="">
                                             <h6>Frozen Foods</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -618,7 +618,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/biscuit.svg" alt="">
+                                            <img th:src="@{/svg/1/biscuit.svg}" alt="">
                                             <h6>Biscuits & Snacks</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -671,7 +671,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/grocery.svg" alt="">
+                                            <img th:src="@{/svg/1/grocery.svg}" alt="">
                                             <h6>Grocery & Staples</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -1166,16 +1166,18 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
                     <div class="image-contain">
-                        <img src="../assets/images/inner-page/otp.png" class="img-fluid" alt="">
+                        <img th:src="@{/images/inner-page/otp.png}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
                     <div class="d-flex align-items-center justify-content-center h-100">
                         <div class="log-in-box">
-                            <div class="log-in-title">
+                            <div class="log-in-title" >
                                 <h3 class="text-title">Please enter the one time password to verify your account</h3>
-                                <h5 class="text-content">A code has been sent to <span>*******9897</span></h5>
+                                <h5 class="text-content">A code has been sent to
+                                    <span th:text="${session.user.mail.substring(0,4) + '*******' + session.user.mail.substring(session.user.mail.length()-5,session.user.mail.length())} "></span>
+                                </h5>
                             </div>
 
                             <div id="otp" class="inputs d-flex flex-row justify-content-center">
@@ -1194,12 +1196,14 @@
                             </div>
 
                             <div class="send-box pt-4">
-                                <h5>Didn't get the code? <a href="javascript:void(0)" class="theme-color fw-bold">Resend
+                                <h5>Didn't get the code? <a th:href="@{/user/re-sentOtp}" class="theme-color fw-bold">Resend
                                         It</a></h5>
                             </div>
 
-                            <button onclick="location.href = 'index.html';" class="btn btn-animation w-100 mt-3"
+                            <button onclick="combineInputs()" class="btn btn-animation w-100 mt-3"
                                 type="submit">Validate</button>
+                            <input type="hidden" id="optValue" th:value="${session.optValue}" />
+
                         </div>
                     </div>
                 </div>
@@ -1217,7 +1221,7 @@
                         <div class="service-contain">
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/product.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/product.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -1227,7 +1231,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/delivery.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/delivery.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -1237,7 +1241,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/discount.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/discount.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -1247,7 +1251,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/market.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/market.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -1265,7 +1269,7 @@
                         <div class="footer-logo">
                             <div class="theme-logo">
                                 <a href="index.html">
-                                    <img src="../assets/images/logo/1.png" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/images/logo/1.png}" class="blur-up lazyload" alt="">
                                 </a>
                             </div>
 
@@ -1403,13 +1407,13 @@
                                     <ul>
                                         <li class="mb-0">
                                             <a href="https://play.google.com/store/apps" target="_blank">
-                                                <img src="../assets/images/playstore.svg" class="blur-up lazyload"
+                                                <img th:src="@{/images/playstore.svg}" class="blur-up lazyload"
                                                     alt="">
                                             </a>
                                         </li>
                                         <li class="mb-0">
                                             <a href="https://www.apple.com/in/app-store/" target="_blank">
-                                                <img src="../assets/images/appstore.svg" class="blur-up lazyload"
+                                                <img th:src="@{/images/appstore.svg}" class="blur-up lazyload"
                                                     alt="">
                                             </a>
                                         </li>
@@ -1427,7 +1431,7 @@
                 </div>
 
                 <div class="payment">
-                    <img src="../assets/images/payment/1.png" class="blur-up lazyload" alt="">
+                    <img th:src="@{/images/payment/1.png}" class="blur-up lazyload" alt="">
                 </div>
 
                 <div class="social-link">
@@ -1474,30 +1478,57 @@
     <div class="bg-overlay"></div>
     <!-- Bg overlay End -->
 
+    <script th:inline="javascript">
+        function combineInputs() {
+            // Lấy giá trị từ 6 thẻ input
+            var firstValue = document.getElementById('first').value;
+            var secondValue = document.getElementById('second').value;
+            var thirdValue = document.getElementById('third').value;
+            var fourthValue = document.getElementById('fourth').value;
+            var fifthValue = document.getElementById('fifth').value;
+            var sixthValue = document.getElementById('sixth').value;
+
+            // Gộp giá trị thành một chuỗi
+            var combinedValue = firstValue + secondValue + thirdValue + fourthValue + fifthValue + sixthValue;
+
+            // Lấy giá trị từ hidden input
+            var optValue = document.getElementById('optValue').value;
+
+            // So sánh với giá trị từ hidden input
+            if (combinedValue === optValue) {
+                // Thực hiện các hành động khi giá trị đúng
+                window.location.href = '/index';
+            } else {
+                // Thực hiện các hành động khi giá trị không đúng
+                alert('Validation failed!');
+            }
+        }
+    </script>
+
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bootstrap/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/bootstrap/popper.min.js}"></script>
 
     <!-- otp js-->
-    <script src="../assets/js/otp.js"></script>
+    <script th:src="@{/js/otp.js}"></script>
 
     <!-- Slick js-->
-    <script src="../assets/js/slick/slick.js"></script>
-    <script src="../assets/js/slick/slick-animation.min.js"></script>
-    <script src="../assets/js/slick/custom_slick.js"></script>
+    <script th:src="@{/js/slick/slick.js}"></script>
+    <script th:src="@{/js/slick/slick-animation.min.js}"></script>
+    <script th:src="@{/js/slick/custom_slick.js}"></script>
 
     <!-- feather icon js-->
-    <script src="../assets/js/feather/feather.min.js"></script>
-    <script src="../assets/js/feather/feather-icon.js"></script>
+    <script th:src="@{/js/feather/feather.min.js}"></script>
+    <script th:src="@{/js/feather/feather-icon.js}"></script>
 
     <!-- Lazyload Js -->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script th:src="@{/js/lazysizes.min.js}"></script>
 
     <!-- script js -->
-    <script src="../assets/js/script.js"></script>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>
