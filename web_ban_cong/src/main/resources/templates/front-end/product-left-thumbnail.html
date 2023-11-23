@@ -8,7 +8,7 @@
     <meta name="description" content="Fastkart">
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" th:href="@{/images/favicon/1.png}" type="image/x-icon">
     <title>Product Left Thumbnail</title>
 
     <!-- Google font -->
@@ -21,26 +21,26 @@
         rel="stylesheet">
 
     <!-- bootstrap css -->
-    <link id="rtl-link" rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <link id="rtl-link" rel="stylesheet" type="text/css" th:href="@{/css/vendors/bootstrap.css}">
 
     <!-- wow css -->
-    <link rel="stylesheet" href="../assets/css/animate.min.css" />
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}" />
 
     <!-- font-awesome css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/font-awesome.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/font-awesome.css}">
 
     <!-- feather icon css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/feather-icon.css}">
 
     <!-- slick css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/vendors/slick/slick-theme.css}">
 
     <!-- Iconly css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bulk-style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bulk-style.css}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color-link" rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -99,28 +99,28 @@
                                 <div class="dropdown theme-form-select">
                                     <button class="btn dropdown-toggle" type="button" id="select-language"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../assets/images/country/united-states.png"
+                                        <img th:src="@{/images/country/united-states.png}"
                                             class="img-fluid blur-up lazyload" alt="">
                                         <span>English</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="select-language">
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="english">
-                                                <img src="../assets/images/country/united-kingdom.png"
+                                                <img th:src="@{/images/country/united-kingdom.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>English</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="france">
-                                                <img src="../assets/images/country/germany.png"
+                                                <img th:src="@{/images/country/germany.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Germany</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="chinese">
-                                                <img src="../assets/images/country/turkish.png"
+                                                <img th:src="@{/images/country/turkish.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Turki</span>
                                             </a>
@@ -166,7 +166,7 @@
                                 </span>
                             </button>
                             <a href="index.html" class="web-logo nav-logo">
-                                <img src="../assets/images/logo/1.png" class="img-fluid blur-up lazyload" alt="">
+                                <img th:src="@{/images/logo/1.png}" class="img-fluid blur-up lazyload" alt="">
                             </a>
 
                             <div class="middle-box">
@@ -244,7 +244,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/1.png"
+                                                                <img th:src="@{/images/vegetable/product/1.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -263,7 +263,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/2.png"
+                                                                <img th:src="@{/images/vegetable/product/2.png}"
                                                                     class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -351,7 +351,7 @@
                                 <ul class="category-list">
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/vegetable.svg" alt="">
+                                            <img th:src="@{/svg/1/vegetable.svg}" alt="">
                                             <h6>Vegetables & Fruit</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -419,7 +419,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/cup.svg" alt="">
+                                            <img th:src="@{/svg/1/cup.svg}" alt="">
                                             <h6>Beverages</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -458,7 +458,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/meats.svg" alt="">
+                                            <img th:src="@{/svg/1/meats.svg}" alt="">
                                             <h6>Meats & Seafood</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -517,7 +517,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/breakfast.svg" alt="">
+                                            <img th:src="@{/svg/1/breakfast.svg}" alt="">
                                             <h6>Breakfast & Dairy</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -591,7 +591,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/frozen.svg" alt="">
+                                            <img th:src="@{/svg/1/frozen.svg}" alt="">
                                             <h6>Frozen Foods</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -624,7 +624,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/biscuit.svg" alt="">
+                                            <img th:src="@{/svg/1/biscuit.svg}" alt="">
                                             <h6>Biscuits & Snacks</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -677,7 +677,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="../assets/svg/1/grocery.svg" alt="">
+                                            <img th:src="@{/svg/1/grocery.svg}" alt="">
                                             <h6>Grocery & Staples</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -1143,12 +1143,12 @@
     <!-- mobile fix menu end -->
 
     <!-- Breadcrumb Section Start -->
-    <section class="breadscrumb-section pt-0">
+    <section class="breadscrumb-section pt-0" >
         <div class="container-fluid-lg">
             <div class="row">
                 <div class="col-12">
                     <div class="breadscrumb-contain">
-                        <h2>Creamy Chocolate Cake</h2>
+                        <h2 th:text="${tree.getName()}"></h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -1157,7 +1157,7 @@
                                     </a>
                                 </li>
 
-                                <li class="breadcrumb-item active">Creamy Chocolate Cake</li>
+                                <li class="breadcrumb-item active" th:text="${tree.getName()}"></li>
                             </ol>
                         </nav>
                     </div>
@@ -1180,48 +1180,48 @@
                                         <div class="product-main-2 no-arrow">
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/1.jpg" id="img-1"
-                                                        data-zoom-image="../assets/images/product/category/1.jpg"
+                                                    <img th:src="${tree.getImage()}" id="img-1"
+                                                        th:data-zoom-image="${tree.getImage()}"
                                                         class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/2.jpg"
-                                                        data-zoom-image="../assets/images/product/category/2.jpg"
+                                                    <img th:src="${tree.getImage()}"
+                                                        data-zoom-image="../assets/images/product/category/2.jpg}"
                                                         class="img-fluid image_zoom_cls-1 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/3.jpg"
-                                                        data-zoom-image="../assets/images/product/category/3.jpg"
+                                                    <img th:src="${tree.getImage()}"
+                                                        data-zoom-image="../assets/images/product/category/3.jpg}"
                                                         class="img-fluid image_zoom_cls-2 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/4.jpg"
-                                                        data-zoom-image="../assets/images/product/category/4.jpg"
+                                                    <img th:src="${tree.getImage()}"
+                                                        data-zoom-image="../assets/images/product/category/4.jpg}"
                                                         class="img-fluid image_zoom_cls-3 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/5.jpg"
-                                                        data-zoom-image="../assets/images/product/category/5.jpg"
+                                                    <img th:src="${tree.getImage()}"
+                                                        data-zoom-image="../assets/images/product/category/5.jpg}"
                                                         class="img-fluid image_zoom_cls-4 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="slider-image">
-                                                    <img src="../assets/images/product/category/6.jpg"
-                                                        data-zoom-image="../assets/images/product/category/6.jpg"
+                                                    <img th:src="${tree.getImage()}"
+                                                        data-zoom-image="../assets/images/product/category/6.jpg}"
                                                         class="img-fluid image_zoom_cls-5 blur-up lazyload" alt="">
                                                 </div>
                                             </div>
@@ -1232,42 +1232,42 @@
                                         <div class="left-slider-image-2 left-slider no-arrow slick-top">
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/1.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/2.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/3.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/4.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/5.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <div class="sidebar-image">
-                                                    <img src="../assets/images/product/category/6.jpg"
+                                                    <img th:src="${tree.getImage()}"
                                                         class="img-fluid blur-up lazyload" alt="">
                                                 </div>
                                             </div>
@@ -1280,9 +1280,9 @@
                         <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="right-box-contain">
                                 <h6 class="offer-top">30% Off</h6>
-                                <h2 class="name">Creamy Chocolate Cake</h2>
+                                <h2 class="name" th:text="${tree.getName()}"></h2>
                                 <div class="price-rating">
-                                    <h3 class="theme-color price">$49.50 <del class="text-content">$58.46</del> <span
+                                    <h3 class="theme-color price" th:text="${tree.getPrice()} + ' VND'"> <del class="text-content">$58.46</del> <span
                                             class="offer theme-color">(8% off)</span></h3>
                                     <div class="product-rating custom-rate">
                                         <ul class="rating">
@@ -1307,11 +1307,7 @@
                                 </div>
 
                                 <div class="procuct-contain">
-                                    <p>Lollipop cake chocolate chocolate cake dessert jujubes. Shortbread sugar plum
-                                        dessert
-                                        powder cookie sweet brownie. Cake cookie apple pie dessert sugar plum muffin
-                                        cheesecake.
-                                    </p>
+                                    <p th:text="${tree.getTitle()}"></p>
                                 </div>
 
                                 <div class="product-packege">
@@ -1412,23 +1408,12 @@
                                 </div>
 
                                 <div class="pickup-box">
-                                    <div class="product-title">
-                                        <h4>Store Information</h4>
-                                    </div>
-
-                                    <div class="pickup-detail">
-                                        <h4 class="text-content">Lollipop cake chocolate chocolate cake dessert jujubes.
-                                            Shortbread sugar plum dessert powder cookie sweet brownie.</h4>
-                                    </div>
-
                                     <div class="product-info">
                                         <ul class="product-info-list product-info-list-2">
-                                            <li>Type : <a href="javascript:void(0)">Black Forest</a></li>
-                                            <li>SKU : <a href="javascript:void(0)">SDFVW65467</a></li>
-                                            <li>MFG : <a href="javascript:void(0)">Jun 4, 2022</a></li>
-                                            <li>Stock : <a href="javascript:void(0)">2 Items Left</a></li>
-                                            <li>Tags : <a href="javascript:void(0)">Cake,</a> <a
-                                                    href="javascript:void(0)">Backery</a></li>
+                                            <li>Loại cây : <a href="javascript:void(0)" th:text="${tree.getTypeDetail()}"></a></li>
+                                            <li>Mùa đẹp nhất(Hoa nở): <a href="javascript:void(0)" th:text="${tree.getMostSeason()}" ></a></li>
+                                            <li>Tuổi : <a href="javascript:void(0)">Jun 4, 2022</a></li>
+                                            <li>Số lượng : <a href="javascript:void(0)" th:text="${tree.getQuantity()}"></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1440,31 +1425,31 @@
                                     <ul>
                                         <li>
                                             <a href="javascript:void(0)">
-                                                <img src="../assets/images/product/payment/1.svg"
+                                                <img th:src="@{/images/product/payment/1.svg}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:void(0)">
-                                                <img src="../assets/images/product/payment/2.svg"
+                                                <img th:src="@{/images/product/payment/2.svg}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:void(0)">
-                                                <img src="../assets/images/product/payment/3.svg"
+                                                <img th:src="@{/images/product/payment/3.svg}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:void(0)">
-                                                <img src="../assets/images/product/payment/4.svg"
+                                                <img th:src="@{/images/product/payment/4.svg}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:void(0)">
-                                                <img src="../assets/images/product/payment/5.svg"
+                                                <img th:src="@{/images/product/payment/5.svg}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
                                         </li>
@@ -1506,67 +1491,7 @@
                                         aria-labelledby="description-tab">
                                         <div class="product-description">
                                             <div class="nav-desh">
-                                                <p>Jelly beans carrot cake icing biscuit oat cake gummi bears tart.
-                                                    Lemon drops carrot cake pudding sweet gummi bears. Chocolate cake
-                                                    tart cupcake donut topping liquorice sugar plum chocolate bar. Jelly
-                                                    beans tiramisu caramels jujubes biscuit liquorice chocolate. Pudding
-                                                    toffee jujubes oat cake sweet roll. Lemon drops dessert croissant
-                                                    danish cake cupcake. Sweet roll candy chocolate toffee jelly sweet
-                                                    roll halvah brownie topping. Marshmallow powder candy sesame snaps
-                                                    jelly beans candy canes marshmallow gingerbread pie.</p>
-                                            </div>
-
-                                            <div class="nav-desh">
-                                                <div class="desh-title">
-                                                    <h5>Organic:</h5>
-                                                </div>
-                                                <p>vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam
-                                                    vestibulum morbi blandit cursus risus at ultrices mi tempus
-                                                    imperdiet nulla malesuada pellentesque elit eget gravida cum sociis
-                                                    natoque penatibus et magnis dis parturient montes nascetur ridiculus
-                                                    mus mauris vitae ultricies leo integer malesuada nunc vel risus
-                                                    commodo viverra maecenas accumsan lacus vel facilisis volutpat est
-                                                    velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit
-                                                    amet nisl suscipit adipiscing bibendum est ultricies integer quis
-                                                    auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet
-                                                    massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada
-                                                    proin libero nunc consequat interdum varius sit amet mattis
-                                                    vulputate enim nulla aliquet porttitor lacus luctus accumsan.</p>
-                                            </div>
-
-                                            <div class="banner-contain nav-desh">
-                                                <img src="../assets/images/vegetable/banner/14.jpg"
-                                                    class="bg-img blur-up lazyload" alt="">
-                                                <div class="banner-details p-center banner-b-space w-100 text-center">
-                                                    <div>
-                                                        <h6 class="ls-expanded theme-color mb-sm-3 mb-1">SUMMER</h6>
-                                                        <h2>VEGETABLE</h2>
-                                                        <p class="mx-auto mt-1">Save up to 5% OFF</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="nav-desh">
-                                                <div class="desh-title">
-                                                    <h5>From The Manufacturer:</h5>
-                                                </div>
-                                                <p>Jelly beans shortbread chupa chups carrot cake jelly-o halvah apple
-                                                    pie pudding gingerbread. Apple pie halvah cake tiramisu shortbread
-                                                    cotton candy croissant chocolate cake. Tart cupcake caramels gummi
-                                                    bears macaroon gingerbread fruitcake marzipan wafer. Marzipan
-                                                    dessert cupcake ice cream tootsie roll. Brownie chocolate cake
-                                                    pudding cake powder candy ice cream ice cream cake. Jujubes soufflé
-                                                    chupa chups cake candy halvah donut. Tart tart icing lemon drops
-                                                    fruitcake apple pie.</p>
-
-                                                <p>Dessert liquorice tart soufflé chocolate bar apple pie pastry danish
-                                                    soufflé. Gummi bears halvah gingerbread jelly icing. Chocolate cake
-                                                    chocolate bar pudding chupa chups bear claw pie dragée donut halvah.
-                                                    Gummi bears cookie ice cream jelly-o jujubes sweet croissant.
-                                                    Marzipan cotton candy gummi bears lemon drops lollipop lollipop
-                                                    chocolate. Ice cream cookie dragée cake sweet roll sweet roll.Lemon
-                                                    drops cookie muffin carrot cake chocolate marzipan gingerbread
-                                                    topping chocolate bar. Soufflé tiramisu pastry sweet dessert.</p>
+                                                <p th:text="${tree.getDescription()}"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1613,26 +1538,8 @@
                                     </div>
 
                                     <div class="tab-pane fade" id="care" role="tabpanel" aria-labelledby="care-tab">
-                                        <div class="information-box">
-                                            <ul>
-                                                <li>Store cream cakes in a refrigerator. Fondant cakes should be
-                                                    stored in an air conditioned environment.</li>
+                                        <div class="information-box" th:text="${tree.getHowToCare()}">
 
-                                                <li>Slice and serve the cake at room temperature and make sure
-                                                    it is not exposed to heat.</li>
-
-                                                <li>Use a serrated knife to cut a fondant cake.</li>
-
-                                                <li>Sculptural elements and figurines may contain wire supports
-                                                    or toothpicks or wooden skewers for support.</li>
-
-                                                <li>Please check the placement of these items before serving to
-                                                    small children.</li>
-
-                                                <li>The cake should be consumed within 24 hours.</li>
-
-                                                <li>Enjoy your cake!</li>
-                                            </ul>
                                         </div>
                                     </div>
 
@@ -1796,10 +1703,10 @@
                                                     <div class="review-people">
                                                         <ul class="review-list">
                                                             <li>
-                                                                <div class="people-box">
+                                                                <div class="people-box">f
                                                                     <div>
                                                                         <div class="people-image">
-                                                                            <img src="../assets/images/review/1.jpg"
+                                                                            <img th:src="@{/images/review/1.jpg}"
                                                                                 class="img-fluid blur-up lazyload"
                                                                                 alt="">
                                                                         </div>
@@ -1854,7 +1761,7 @@
                                                                 <div class="people-box">
                                                                     <div>
                                                                         <div class="people-image">
-                                                                            <img src="../assets/images/review/2.jpg"
+                                                                            <img th:src="@{/images/review/2.jpg}"
                                                                                 class="img-fluid blur-up lazyload"
                                                                                 alt="">
                                                                         </div>
@@ -1908,7 +1815,7 @@
                                                                 <div class="people-box">
                                                                     <div>
                                                                         <div class="people-image">
-                                                                            <img src="../assets/images/review/3.jpg"
+                                                                            <img th:src="@{/images/review/3.jpg}"
                                                                                 class="img-fluid blur-up lazyload"
                                                                                 alt="">
                                                                         </div>
@@ -1977,7 +1884,7 @@
                         <div class="vendor-box">
                             <div class="verndor-contain">
                                 <div class="vendor-image">
-                                    <img src="../assets/images/product/vendor.png" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/images/product/vendor.png}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="vendor-name">
@@ -2038,7 +1945,7 @@
                                     <li>
                                         <div class="offer-product">
                                             <a href="product-left-thumbnail.html" class="offer-image">
-                                                <img src="../assets/images/vegetable/product/23.png"
+                                                <img th:src="@{/images/vegetable/product/23.png}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                             </a>
 
@@ -2057,7 +1964,7 @@
                                     <li>
                                         <div class="offer-product">
                                             <a href="product-left-thumbnail.html" class="offer-image">
-                                                <img src="../assets/images/vegetable/product/24.png"
+                                                <img th:src="@{/images/vegetable/product/24.png}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
 
@@ -2076,7 +1983,7 @@
                                     <li>
                                         <div class="offer-product">
                                             <a href="product-left-thumbnail.html" class="offer-image">
-                                                <img src="../assets/images/vegetable/product/25.png"
+                                                <img th:src="@{/images/vegetable/product/25.png}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
 
@@ -2095,7 +2002,7 @@
                                     <li class="mb-0">
                                         <div class="offer-product">
                                             <a href="product-left-thumbnail.html" class="offer-image">
-                                                <img src="../assets/images/vegetable/product/26.png"
+                                                <img th:src="@{/images/vegetable/product/26.png}"
                                                     class="blur-up lazyload" alt="">
                                             </a>
 
@@ -2117,7 +2024,7 @@
                         <!-- Banner Section -->
                         <div class="ratio_156 pt-25">
                             <div class="home-contain">
-                                <img src="../assets/images/vegetable/banner/8.jpg" class="bg-img blur-up lazyload"
+                                <img th:src="@{/images/vegetable/banner/8.jpg}" class="bg-img blur-up lazyload"
                                     alt="">
                                 <div class="home-detail p-top-left home-p-medium">
                                     <div>
@@ -2146,7 +2053,7 @@
                 <h2>Related Products</h2>
                 <span class="title-leaf">
                     <svg class="icon-width">
-                        <use xlink:href="../assets/svg/leaf.svg#leaf"></use>
+                        <use xlink:th:href="@{/svg/leaf.svg#leaf"></use>
                     </svg>
                 </span>
             </div>
@@ -2158,7 +2065,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left.htm">
-                                            <img src="../assets/images/cake/product/11.png"
+                                            <img th:src="@{/images/cake/product/11.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2245,7 +2152,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/2.png"
+                                            <img th:src="@{/images/cake/product/2.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2331,7 +2238,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/3.png"
+                                            <img th:src="@{/images/cake/product/3.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2418,7 +2325,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/4.png"
+                                            <img th:src="@{/images/cake/product/4.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2505,7 +2412,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/5.png"
+                                            <img th:src="@{/images/cake/product/5.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2592,7 +2499,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/6.png"
+                                            <img th:src="@{/images/cake/product/6.png}"
                                                 class="img-fluid blur-up lazyload" alt="">
                                         </a>
 
@@ -2681,7 +2588,7 @@
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="product-left-thumbnail.html">
-                                            <img src="../assets/images/cake/product/7.png" class="img-fluid" alt="">
+                                            <img th:src="@{/images/cake/product/7.png}" class="img-fluid" alt="">
                                         </a>
 
                                         <ul class="product-option">
@@ -2779,7 +2686,7 @@
                         <div class="service-contain">
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/product.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/product.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -2789,7 +2696,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/delivery.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/delivery.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -2799,7 +2706,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/discount.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/discount.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -2809,7 +2716,7 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="../assets/svg/market.svg" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/svg/market.svg}" class="blur-up lazyload" alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -2827,7 +2734,7 @@
                         <div class="footer-logo">
                             <div class="theme-logo">
                                 <a href="index.html">
-                                    <img src="../assets/images/logo/1.png" class="blur-up lazyload" alt="">
+                                    <img th:src="@{/images/logo/1.png}" class="blur-up lazyload" alt="">
                                 </a>
                             </div>
 
@@ -2965,13 +2872,13 @@
                                     <ul>
                                         <li class="mb-0">
                                             <a href="https://play.google.com/store/apps" target="_blank">
-                                                <img src="../assets/images/playstore.svg" class="blur-up lazyload"
+                                                <img th:src="@{/images/playstore.svg}" class="blur-up lazyload"
                                                     alt="">
                                             </a>
                                         </li>
                                         <li class="mb-0">
                                             <a href="https://www.apple.com/in/app-store/" target="_blank">
-                                                <img src="../assets/images/appstore.svg" class="blur-up lazyload"
+                                                <img th:src="@{/images/appstore.svg}" class="blur-up lazyload"
                                                     alt="">
                                             </a>
                                         </li>
@@ -2989,7 +2896,7 @@
                 </div>
 
                 <div class="payment">
-                    <img src="../assets/images/payment/1.png" class="blur-up lazyload" alt="">
+                    <img th:src="@{/images/payment/1.png}" class="blur-up lazyload" alt="">
                 </div>
 
                 <div class="social-link">
@@ -3036,7 +2943,7 @@
                     <div class="row g-sm-4 g-2">
                         <div class="col-lg-6">
                             <div class="slider-image">
-                                <img src="../assets/images/product/category/1.jpg" class="img-fluid blur-up lazyload"
+                                <img th:src="@{/images/product/category/1.jpg}" class="img-fluid blur-up lazyload"
                                     alt="">
                             </div>
                         </div>
@@ -3248,7 +3155,7 @@
                             <li class="list-1">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="../assets/images/vegetable/product/10.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/vegetable/product/10.png}" class="blur-up lazyload"
                                             alt="">
                                     </a>
 
@@ -3262,7 +3169,7 @@
                             <li class="list-2">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="../assets/images/vegetable/product/11.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/vegetable/product/11.png}" class="blur-up lazyload"
                                             alt="">
                                     </a>
 
@@ -3276,7 +3183,7 @@
                             <li class="list-3">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="../assets/images/vegetable/product/12.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/vegetable/product/12.png}" class="blur-up lazyload"
                                             alt="">
                                     </a>
 
@@ -3290,7 +3197,7 @@
                             <li class="list-1">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="../assets/images/vegetable/product/13.png" class="blur-up lazyload"
+                                        <img th:src="@{/images/vegetable/product/13.png}" class="blur-up lazyload"
                                             alt="">
                                     </a>
 
@@ -3311,7 +3218,7 @@
     <!-- Add to cart Modal Start -->
     <div class="add-cart-box">
         <div class="add-iamge">
-            <img src="../assets/images/cake/pro/1.jpg" class="img-fluid" alt="">
+            <img th:src="@{/images/cake/pro/1.jpg}" class="img-fluid" alt="">
         </div>
 
         <div class="add-contain">
@@ -3337,11 +3244,11 @@
                 <div class="col-12">
                     <div class="cart-content">
                         <div class="product-image">
-                            <img src="../assets/images/product/category/1.jpg" class="img-fluid blur-up lazyload"
+                            <img th:src="${tree.getImage()}" class="img-fluid blur-up lazyload"
                                 alt="">
                             <div class="content">
-                                <h5>Creamy Chocolate Cake</h5>
-                                <h6>$32.96<del class="text-danger">$96.00</del><span>55% off</span></h6>
+                                <h5 th:text="${tree.getName()}"></h5>
+                                <h6 th:text="${tree.getPrice()} + ' VND'"><del class="text-danger">21000 VND</del><span></span></h6>
                             </div>
                         </div>
                         <div class="selection-section">
@@ -3384,54 +3291,54 @@
     <!-- Bg overlay End -->
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
     <!-- jquery ui-->
-    <script src="../assets/js/jquery-ui.min.js"></script>
+    <script th:src="@{/js/jquery-ui.min.js}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bootstrap/bootstrap-notify.min.js"></script>
-    <script src="../assets/js/bootstrap/popper.min.js"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap-notify.min.js}"></script>
+    <script th:src="@{/js/bootstrap/popper.min.js}"></script>
 
     <!-- feather icon js-->
-    <script src="../assets/js/feather/feather.min.js"></script>
-    <script src="../assets/js/feather/feather-icon.js"></script>
+    <script th:src="@{/js/feather/feather.min.js}"></script>
+    <script th:src="@{/js/feather/feather-icon.js}"></script>
 
     <!-- Lazyload Js -->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script th:src="@{/js/lazysizes.min.js}"></script>
 
     <!-- Slick js-->
-    <script src="../assets/js/slick/slick.js"></script>
-    <script src="../assets/js/slick/slick-animation.min.js"></script>
-    <script src="../assets/js/custom-slick-animated.js"></script>
-    <script src="../assets/js/slick/custom_slick.js"></script>
+    <script th:src="@{/js/slick/slick.js}"></script>
+    <script th:src="@{/js/slick/slick-animation.min.js}"></script>
+    <script th:src="@{/js/custom-slick-animated.js}"></script>
+    <script th:src="@{/js/slick/custom_slick.js}"></script>
 
     <!-- Price Range Js -->
-    <script src="../assets/js/ion.rangeSlider.min.js"></script>
+    <script th:src="@{/js/ion.rangeSlider.min.js}"></script>
 
     <!-- sidebar open js -->
-    <script src="../assets/js/filter-sidebar.js"></script>
+    <script th:src="@{/js/filter-sidebar.js}"></script>
 
     <!-- Quantity js -->
-    <script src="../assets/js/quantity-2.js"></script>
+    <script th:src="@{/js/quantity-2.js}"></script>
 
     <!-- Zoom Js -->
-    <script src="../assets/js/jquery.elevatezoom.js"></script>
-    <script src="../assets/js/zoom-filter.js"></script>
+    <script th:src="@{/js/jquery.elevatezoom.js}"></script>
+    <script th:src="@{/js/zoom-filter.js}"></script>
 
     <!-- Timer Js -->
-    <script src="../assets/js/timer1.js"></script>
+    <script th:src="@{/js/timer1.js}"></script>
 
     <!-- Sticky-bar js -->
-    <script src="../assets/js/sticky-cart-bottom.js"></script>
+    <script th:src="@{/js/sticky-cart-bottom.js}"></script>
 
     <!-- WOW js -->
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/custom-wow.js"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/custom-wow.js}"></script>
 
     <!-- script js -->
-    <script src="../assets/js/script.js"></script>
+    <script th:src="@{/js/script.js}"></script>
 
 
 
