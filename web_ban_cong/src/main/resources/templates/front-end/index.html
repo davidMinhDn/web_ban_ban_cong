@@ -1152,15 +1152,13 @@
             <div class="col-xl-8 ratio_65">
                 <div class="home-contain h-100">
                     <div class="h-100">
-                        <img th:src="@{../images/vegetable/banner/1.jpg}" class="bg-img blur-up lazyload" alt="">
+                        <img th:src="${combos.get(0).getImage()}" class="bg-img blur-up lazyload" alt="">
                     </div>
                     <div class="home-detail p-center-left w-75">
                         <div>
-                            <h6>Exclusive offer <span>30% Off</span></h6>
-                            <h1 class="text-uppercase">Stay home & delivered your <span class="daily">Daily
-                                        Needs</span></h1>
-                            <p class="w-75 d-none d-sm-block">Vegetables contain many vitamins and minerals that are
-                                good for your health.</p>
+                            <h6>Ưu đãi đặc biệt <span>30% Off</span></h6>
+                            <h1 class="text-uppercase">Hoàn thiện one day <span class="daily">Miễn phí vận chuyển</span></h1>
+                            <p class="w-75 d-none d-sm-block" th:text="${combos.get(0).getName()}"></p>
                             <button onclick="location.href = '/tree/all';"
                                     class="btn btn-animation mt-xxl-4 mt-2 home-button mend-auto">Shop Now <i
                                     class="fa-solid fa-right-long icon"></i></button>

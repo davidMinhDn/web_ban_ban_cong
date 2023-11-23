@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class Tree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tree_id")
     private Long id;
 
     @Column(name = "name")
