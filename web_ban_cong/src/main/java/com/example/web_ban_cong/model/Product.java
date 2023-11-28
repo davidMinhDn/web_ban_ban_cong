@@ -1,12 +1,15 @@
 package com.example.web_ban_cong.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.CustomLog;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -41,7 +44,7 @@ public class Product {
     private String size;
 
     @Column(name = "manufacturing_date")
-    private Date manufacturing_date;
+    private String manufacturing_date;
 
     @Column(name = "cach_bao_quan")
     private String cach_bao_quan;
@@ -54,4 +57,20 @@ public class Product {
 
     @Column(name = "dac_tinh")
     private String dac_tinh;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "price_other")
+    private double priceOther;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductImage> productImages;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Combo> combos = new ArrayList<>();
+
 }

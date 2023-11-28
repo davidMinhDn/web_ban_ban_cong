@@ -6,22 +6,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product_image")
-public class ProductImage {
-    public static final int  MAXIMUM_IMAGES_PER_PRODUCT = 6;
+@Table(name = "combo_product")
+public class ComboProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_image_id")
+    @Column(name = "combo_product_id")
     private Long id;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @ManyToOne
+    @JoinColumn(name = "combo_id")
+    private Combo combo;
+
+    @Column(name = "quantity")
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
 }

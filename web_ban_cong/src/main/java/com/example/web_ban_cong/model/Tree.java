@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -51,4 +54,7 @@ public class Tree {
 
     @Column(name = "title")
     private String title;
+
+    @ManyToMany(mappedBy = "flowers_and_trees")
+    private List<Combo> combos = new ArrayList<>();
 }

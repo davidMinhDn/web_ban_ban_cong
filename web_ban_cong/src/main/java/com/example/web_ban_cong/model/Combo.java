@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,4 +31,20 @@ public class Combo {
 
     @Column(name = "image")
     private String image;
+
+    @ManyToMany
+    @JoinTable(
+            name = "combo_product",
+            joinColumns = @JoinColumn(name = "combo_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "comdo_tree_detail",
+            joinColumns = @JoinColumn(name = "combo_id"),
+            inverseJoinColumns = @JoinColumn(name = "tree_id")
+    )
+    private List<Tree> flowers_and_trees = new ArrayList<>();
 }
