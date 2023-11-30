@@ -55,6 +55,21 @@ public class Tree {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "arrival_date")
+    private String arrivalDate;
+
+    @Column(name = "price_other")
+    private Double priceOther;
+
+    @Column(name = "dac_tinh")
+    private String dacTinh;
+
+    @Column(name = "refund")
+    private boolean refund;
+
     @ManyToMany(mappedBy = "flowers_and_trees")
     private List<Combo> combos = new ArrayList<>();
 }

@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ComboProductRepository extends JpaRepository<ComboProduct, Long> {
     List<ComboProduct> findByComboId(Long comboId);
+    void deleteByProductId(Long id);
 }

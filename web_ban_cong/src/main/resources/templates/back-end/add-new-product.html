@@ -246,11 +246,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="products.html">Prodcts</a>
+                                            <a th:href="@{/manager/all}">Prodcts</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-product.html">Add New Products</a>
+                                            <a th:href="@{/product/add}">Add New Products</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -266,7 +266,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="add-new-category.html">Add New Category</a>
+                                            <a th:href="@{/tree/add}">Add New Tree</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -547,7 +547,7 @@
                                                             class="col-sm-3 col-form-label form-label-title">Có thể hoàn trả</label>
                                                     <div class="col-sm-9">
                                                         <label class="switch">
-                                                            <input type="checkbox" checked=""><span
+                                                            <input type="checkbox" th:checked="*{refund}" name="refund"><span
                                                                 class="switch-state"></span>
                                                         </label>
                                                     </div>
@@ -577,7 +577,7 @@
                                                         Image</label>
                                                     <div class="col-sm-9">
                                                         <input class="form-control form-choose" type="file"
-                                                               id="formFileMultiple1" multiple>
+                                                               id="formFileMultiple1" multiple name="imageOther">
                                                     </div>
                                                 </div>
                                             </div>

@@ -67,6 +67,9 @@ public class Product {
     @Column(name = "price_other")
     private double priceOther;
 
+    @Column(name = "refund")
+    private boolean refund;
+
     @OneToMany(mappedBy = "product")
     private List<ProductImage> productImages;
 

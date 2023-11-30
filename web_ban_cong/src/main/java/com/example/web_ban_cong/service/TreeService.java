@@ -23,4 +23,10 @@ public class TreeService implements ITreeService{
         return treeRepository.findAll();
     }
 
+    @Override
+    public Tree addTree(Tree tree) {
+        return treeRepository.save(tree);
+    }
+
+
 }

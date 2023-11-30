@@ -1,7 +1,10 @@
 package com.example.web_ban_cong.service;
 
 import com.example.web_ban_cong.model.Product;
+import com.example.web_ban_cong.repository.ComboProductRepository;
+import com.example.web_ban_cong.repository.ProductImageRepository;
 import com.example.web_ban_cong.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,10 @@ import java.util.Optional;
 public class ProductService implements IProductService{
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private ProductImageRepository productImageRepository;
+    @Autowired
+    private ComboProductRepository comboProductRepository;
     @Override
     public Product getProductByID(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
@@ -21,5 +28,13 @@ public class ProductService implements IProductService{
     @Override
     public List<Product> getAllProduct() {
         return productRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void deleteProduct(Long id) {
+        productImageRepository.deleteByProductId(id);
+        comboProductRepository.deleteByProductId(id);
+        productRepository.deleteById(id);
     }
 }
