@@ -27,10 +27,19 @@ public class Combo {
     private Double price;
 
     @Column(name = "creation_date")
-    private Date creation_date;
+    private Date creationDate;
 
     @Column(name = "image")
     private String image;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "price_other")
+    private double priceOther;
 
     @ManyToMany
     @JoinTable(

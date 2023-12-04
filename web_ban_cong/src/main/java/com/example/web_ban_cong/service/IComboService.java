@@ -7,4 +7,5 @@ import java.util.List;
 public interface IComboService {
      Combo getComboById (Long id);
      List<Combo> getAllCombo();
+     Combo addCombo(Combo combo);
 }

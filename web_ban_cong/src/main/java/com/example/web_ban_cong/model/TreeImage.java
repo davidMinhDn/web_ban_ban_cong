@@ -1,31 +1,28 @@
 package com.example.web_ban_cong.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "combo_product")
-public class ComboProduct {
+@Table(name = "tree_image")
+public class TreeImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "combo_product_id")
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "combo_id")
-    private Combo combo;
-
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "tree_id")
+    private Tree flowers_and_trees;
 
 }

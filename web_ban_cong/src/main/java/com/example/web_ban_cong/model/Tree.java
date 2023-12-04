@@ -28,9 +28,6 @@ public class Tree {
     @Column(name = "size")
     private String size;
 
-    @Column(name = "type")
-    private int type;
-
     @Column(name = "flower_color")
     private String flowerColor;
 
@@ -49,14 +46,8 @@ public class Tree {
     @Column(name = "how_ to_care")
     private String howToCare;
 
-    @Column(name = "type_detail")
-    private String typeDetail;
-
     @Column(name = "title")
     private String title;
-
-    @Column(name = "category")
-    private String category;
 
     @Column(name = "arrival_date")
     private String arrivalDate;
@@ -69,6 +60,13 @@ public class Tree {
 
     @Column(name = "refund")
     private boolean refund;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryTree category_tree;
+
+    @OneToMany(mappedBy = "flowers_and_trees")
+    private List<TreeImage> treeImages;
 
     @ManyToMany(mappedBy = "flowers_and_trees")
     private List<Combo> combos = new ArrayList<>();

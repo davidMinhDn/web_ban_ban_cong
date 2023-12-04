@@ -61,9 +61,6 @@ public class Product {
     @Column(name = "image")
     private String image;
 
-    @Column(name = "category")
-    private String category;
-
     @Column(name = "price_other")
     private double priceOther;
 
@@ -72,6 +69,10 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<ProductImage> productImages;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @ManyToMany(mappedBy = "products")
     private List<Combo> combos = new ArrayList<>();

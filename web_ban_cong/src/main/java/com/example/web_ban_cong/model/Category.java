@@ -1,8 +1,8 @@
 package com.example.web_ban_cong.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,21 +11,18 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-@Table(name = "combo_product")
-public class ComboProduct {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "combo_product_id")
+    @Column(name = "category_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "combo_id")
-    private Combo combo;
+    @Column(name = "category_name")
+    private String categoryName;
 
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

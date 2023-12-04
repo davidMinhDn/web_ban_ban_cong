@@ -24,4 +24,10 @@ public class ComboService  implements IComboService{
         return comboRepository.findAll();
     }
 
+    @Override
+    public Combo addCombo(Combo combo) {
+        comboRepository.save(combo);
+        return comboRepository.save(combo);
+    }
+
 }

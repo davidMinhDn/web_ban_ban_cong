@@ -2,12 +2,11 @@ package com.example.web_ban_cong.controller;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.example.web_ban_cong.model.Category;
 import com.example.web_ban_cong.model.Product;
 import com.example.web_ban_cong.model.ProductImage;
-import com.example.web_ban_cong.repository.ComboProductRepository;
-import com.example.web_ban_cong.repository.ComboRepository;
-import com.example.web_ban_cong.repository.ProductImageRepository;
-import com.example.web_ban_cong.repository.ProductRepository;
+import com.example.web_ban_cong.repository.*;
+import com.example.web_ban_cong.service.CategoryService;
 import com.example.web_ban_cong.service.CloudinaryService;
 import com.example.web_ban_cong.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class ProductController {
     @Autowired
     private Cloudinary cloudinary;
     @Autowired
-    private ComboProductRepository comboProductRepository;
+    private CategoryService categoryService;
 
     @GetMapping("/detail/{product_id}")
     public String detailProduct(@PathVariable(name = "product_id") Long id, Model model){
@@ -51,24 +50,28 @@ public class ProductController {
     }
     @GetMapping("/add")
     public String addProduct(Model model){
+        List<Category> categories = categoryService.getAllCategory();
+        model.addAttribute("category", categories);
         model.addAttribute("product", new Product());
         return "back-end/add-new-product";
     }
 
     @PostMapping("/add")
-    public String addProduct(@ModelAttribute Product product
+    public String addProduct(@ModelAttribute Product product , @RequestParam("stateProduct") Long id
             , @RequestPart("file") MultipartFile file, @RequestParam("imageOther") MultipartFile[] images) throws IOException {
         Map<?, ?> uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
 
         // Lấy URL của file đã tải lên thành công
         String imageUrl = (String) uploadResult.get("secure_url");
+        Category category = categoryService.getCategoryId(id);
+        product.setCategory(category);
         product.setImage(imageUrl);
         productRepository.save(product);
         for (MultipartFile image : images) {
             Map<?, ?> uploadResult1 = cloudinary.uploader().upload(image.getBytes(), ObjectUtils.emptyMap());
 
             // Lấy URL của file đã tải lên thành công
-            String imageUrlOther = (String) uploadResult.get("secure_url");
+            String imageUrlOther = (String) uploadResult1.get("secure_url");
             ProductImage newProductImage;
             productImageRepository.save(ProductImage.builder().product(product).imageUrl(imageUrlOther).build());
         }

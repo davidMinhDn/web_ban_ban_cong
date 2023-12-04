@@ -449,179 +449,97 @@
 
         <div class="page-body">
 
-            <!-- New Product Add Start -->
-            <form class="container-fluid" method="post" th:action="@{/tree/add}" th:object="${tree}" enctype="multipart/form-data">
+            <!-- New Combo Add Start -->
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12" >
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-sm-8 m-auto">
                                 <div class="card">
+                                    <input type="hidden" th:value="${combo.getId()}">
                                     <div class="card-body">
                                         <div class="card-header-2">
-                                            <h5>Thông tin cây</h5>
+                                            <h5>Product in Combo</h5>
                                         </div>
-
                                         <div class="theme-form theme-form-2 mega-form">
                                             <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Tên Cây</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Tên sản phẩm" th:field="*{name}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Màu </label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Màu" th:field="*{flowerColor}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Số lượng </label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="number"
-                                                           placeholder="Số lượng" th:field="*{quantity}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Nội dung </label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Nội dung" th:field="*{title}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Size </label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Size" th:field="*{size}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
                                                 <label
-                                                        class="col-sm-3 col-form-label form-label-title">Category</label>
+                                                        class="col-sm-3 col-form-label form-label-title">Chọn sản phẩm</label>
                                                 <div class="col-sm-9">
-                                                    <select class="js-example-basic-single w-100" name="stateProduct">
-                                                        <option disabled>Category Menu</option>
-                                                        <option th:each="cate : ${category}" th:value="${cate.id}" th:text="${cate.getName()}"></option>
+                                                    <label for="mySelect"></label><select class="js-example-basic-single w-100" name="state" id="mySelect" onchange="addProduct()">
+                                                        <option disabled>Các sản phẩm</option>
+                                                        <option ></option>
+                                                        <option th:each="product : ${products}" th:value="${product.getName()}"
+                                                                th:data-image="${product.getImage()}" th:name="${product.getId()}"
+                                                                th:text="${product.getName()} + ' Màu:' + ${product.getColor()} + ' Size:' + ${product.getSize()}">
+                                                        </option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                                <div class="table-responsive">
+                                                    <table class="table all-package theme-table table-product" id="myTableProduct">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Ảnh</th>
+                                                            <th>Tên sản phẩm</th>
+                                                            <th>Màu</th>
+                                                            <th>Xóa</th>
+                                                        </tr>
+                                                        </thead>
 
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Mùa ra hoa</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Hình dạng" th:field="*{mostSeason}">
+                                                        <tbody id="addPro">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
 
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Ngày nhập</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="date"
-                                                           placeholder="Ngày sản xuất" th:field="*{arrivalDate}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Đặc tính </label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Đặc tính" th:field="*{dacTinh}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Cách chăm sóc</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Cách bảo quản" th:field="*{howToCare}">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="form-label-title col-sm-3 mb-0">Mô tả</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="text"
-                                                           placeholder="Mô tả" th:field="*{description}">
-                                                </div>
-                                            </div>
-
-                                            <div class="row align-items-center">
-                                                <label
-                                                        class="col-sm-3 col-form-label form-label-title">Có thể hoàn trả</label>
-                                                <div class="col-sm-9">
-                                                    <label class="switch">
-                                                        <input type="checkbox" th:checked="*{refund}" ><span
-                                                            class="switch-state"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="card-header-2">
-                                            <h5>Product Images</h5>
+                                            <h5>Tree in Combo</h5>
                                         </div>
-
                                         <div class="theme-form theme-form-2 mega-form">
                                             <div class="mb-4 row align-items-center">
                                                 <label
-                                                        class="col-sm-3 col-form-label form-label-title">Ảnh đại diện </label>
+                                                        class="col-sm-3 col-form-label form-label-title">Chọn sản phẩm</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control form-choose" type="file" name="file"
-                                                           id="formFile">
+                                                    <label for="mySelect"></label><select class="js-example-basic-single w-100" name="state" id="mySelectTree" onchange="addTree()">
+                                                    <option disabled>Các sản phẩm</option>
+                                                    <option ></option>
+                                                    <option th:each="tree : ${trees}" th:value="${tree.getName()}"
+                                                            th:data-image="${tree.getImage()}" th:name="${tree.getId()}"
+                                                            th:text="${tree.getName()} + ' Màu:' + ${tree.getSize()} + ' Size:' + ${tree.getSize()}">
+                                                    </option>
+                                                </select>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table all-package theme-table table-product" id="myTableTree">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Ảnh</th>
+                                                            <th>Tên sản phẩm</th>
+                                                            <th>Size</th>
+                                                            <th>Xóa</th>
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody id="addTree">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
 
-                                            <div class="row align-items-center">
-                                                <label class="col-sm-3 col-form-label form-label-title">Các ảnh khác</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control form-choose" type="file" name="imageOther"
-                                                           id="formFileMultiple1" multiple>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-header-2">
-                                            <h5>Giá sản phẩm</h5>
-                                        </div>
-
-                                        <div class="theme-form theme-form-2 mega-form">
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="col-sm-3 form-label-title">Giá bán</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="number" placeholder="0" th:field="*{price}">
-                                                </div>
-                                            </div>
-                                            <div class="mb-4 row align-items-center">
-                                                <label class="col-sm-3 form-label-title">Giá ảo</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" type="number" placeholder="0" th:field="*{priceOther}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success" onclick="dataToSend()">Tạo</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
             <!-- New Product Add End -->
 
             <!-- footer Start -->
@@ -662,6 +580,142 @@
 </div>
 <!-- Modal End -->
 
+<script>
+    function deleteProduct(link) {
+        // Lấy phần tử tr chứa nút xóa
+        var tr = link.closest('tr');
+
+        // Xóa dòng từ DOM
+        tr.remove();
+
+        // Gọi hàm xóa sản phẩm hoặc thực hiện các công việc khác
+        // ...
+    }
+    function addProduct(){
+        var selectElement = document.getElementById("mySelect");
+
+        // Sử dụng selectElement.selectedIndex để lấy index của option được chọn
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+        // Kiểm tra xem option được chọn có tồn tại hay không
+        if (selectedOption) {
+            // Lấy giá trị của thuộc tính name của option
+            var selectedOptionName = selectedOption.getAttribute('name');
+            $.ajax({
+                type: "GET",
+                url: "/combo/ajaxAddPro/" + selectedOptionName,
+                success: function (data) {
+                    var row = document.getElementById("addPro");
+                    row.innerHTML += data                }
+            });
+        } else {
+            console.error("No option selected.");
+        }
+    }
+    function addTree(){
+        var selectElement = document.getElementById("mySelectTree");
+
+        // Sử dụng selectElement.selectedIndex để lấy index của option được chọn
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+        // Kiểm tra xem option được chọn có tồn tại hay không
+        if (selectedOption) {
+            // Lấy giá trị của thuộc tính name của option
+            var selectedOptionName = selectedOption.getAttribute('name');
+            $.ajax({
+                type: "GET",
+                url: "/combo/ajaxAddTree/" + selectedOptionName,
+                success: function (data) {
+                    var row = document.getElementById("addTree");
+                    row.innerHTML += data                }
+            });
+        } else {
+            console.error("No option selected.");
+        }
+    }
+
+    function dataToSend(){
+        // Lấy tất cả các thẻ <tr> trong bảng có id là "myTable"
+        var rowPro = document.getElementById("myTableProduct").getElementsByTagName("tr");
+        var rowTree = document.getElementById("myTableTree").getElementsByTagName("tr");
+
+        // Tạo một mảng để lưu trữ thông tin từ các dòng
+        let ProToSend = [];
+        let TreeToSend = [];
+
+        // Duyệt qua từng thẻ <tr> và thu thập thông tin cần gửi lên server
+        for (var i = 0; i < rowPro.length; i++) {
+            var row = rowPro[i];
+            var name = row.getAttribute("name");
+
+            // Nếu tên tồn tại, thêm vào mảng dataToSend
+            if (name) {
+                ProToSend.push( parseInt(name, 10) );
+
+            }
+        }
+        console.log(ProToSend)
+        var hiddenInput = document.querySelector('input[type="hidden"]');
+
+       // Lấy giá trị từ thuộc tính value của thẻ input
+        var hiddenValue = hiddenInput.value;
+        // Duyệt qua từng thẻ <tr> và thu thập thông tin cần gửi lên server
+        for (var i = 0; i < rowTree.length; i++) {
+            var row = rowTree[i];
+            var name = row.getAttribute("name");
+
+            // Nếu tên tồn tại, thêm vào mảng dataToSend
+            if (name) {
+                TreeToSend.push( parseInt(name, 10) );
+                console.log(name)
+            }
+        }
+        console.log(TreeToSend)
+        // Gửi dữ liệu lên server bằng Fetch API
+        fetch("/combo/addProduct/" + hiddenValue, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ProToSend)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Request failed");
+                }
+                // Xử lý phản hồi từ server nếu cần
+                console.log("Request successful");
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Hiển thị thông báo lỗi hoặc thực hiện xử lý khác
+            })
+            .catch(error => {
+                // Xử lý lỗi nếu có
+                console.error(error);
+            });
+        // Gửi dữ liệu lên server bằng Fetch API
+        fetch("/combo/addTree/"+hiddenValue, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(TreeToSend)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Request failed");
+                }
+                // Xử lý phản hồi từ server nếu cần
+                console.log("Request successful");
+            })
+            .catch(error => {
+                // Xử lý lỗi nếu có
+                console.error(error);
+            });
+    }
+
+</script>
 <!-- latest js -->
 <script th:src="@{/back-end-js/jquery-3.6.0.min.js}"></script>
 

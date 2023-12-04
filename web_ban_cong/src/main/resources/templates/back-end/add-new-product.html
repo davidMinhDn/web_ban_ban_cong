@@ -218,9 +218,9 @@
                     </div>
                     <div class="logo-icon-wrapper">
                         <a href="index.html">
-                            <img class="img-fluid main-logo main-white" th:src="@{/back-end-images/logo/1-white.png}" alt="logo">
+                            <img class="img-fluid main-logo main-white" th:src="@{/back-end-images/logo/logo.png}" alt="logo">
                             <img class="img-fluid main-logo main-dark" th:src="@{/back-end-images/logo/logo-white.png}"
-                                alt="logo">
+                                 alt="logo">
                         </a>
                     </div>
                     <nav class="sidebar-main">
@@ -257,12 +257,28 @@
 
                                 <li class="sidebar-list">
                                     <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                        <i class="ri-list-check-2"></i>
-                                        <span>Category</span>
+                                        <i class="ri-store-3-line"></i>
+                                        <span>Combo</span>
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="category.html">Category List</a>
+                                            <a th:href="@{/combo/manager/all}">Combo</a>
+                                        </li>
+
+                                        <li>
+                                            <a th:href="@{/combo/add}">Add New Combo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="sidebar-list">
+                                    <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                                        <i class="ri-list-check-2"></i>
+                                        <span>Tree</span>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li>
+                                            <a th:href="@{/manager/tree/all}">Tree List</a>
                                         </li>
 
                                         <li>
@@ -487,10 +503,13 @@
                                                 </div>
 
                                                 <div class="mb-4 row align-items-center">
-                                                    <label class="form-label-title col-sm-3 mb-0">Loại sản phẩm </label>
+                                                    <label
+                                                            class="col-sm-3 col-form-label form-label-title">Category</label>
                                                     <div class="col-sm-9">
-                                                        <input class="form-control" type="text"
-                                                               placeholder="Loại sản phẩm" th:field="*{category}">
+                                                        <select class="js-example-basic-single w-100" name="stateProduct">
+                                                            <option disabled>Category Menu</option>
+                                                            <option th:each="cate : ${category}" th:value="${cate.id}" th:text="${cate.getCategoryName()}"></option>
+                                                        </select>
                                                     </div>
                                                 </div>
 

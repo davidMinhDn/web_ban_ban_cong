@@ -16,9 +16,6 @@ public class ComboTree {
     @Column(name = "combo_tree_id")
     private Long id;
 
-    @Column(name = "quantity")
-    private int quantity;
-
     @ManyToOne
     @JoinColumn(name = "combo_id")
     private Combo combo;
