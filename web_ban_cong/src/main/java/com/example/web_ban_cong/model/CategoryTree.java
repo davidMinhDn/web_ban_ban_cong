@@ -23,6 +23,6 @@ public class CategoryTree {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "category_tree")
+    @OneToMany(mappedBy = "categoryTree")
     private List<Tree> trees;
 }

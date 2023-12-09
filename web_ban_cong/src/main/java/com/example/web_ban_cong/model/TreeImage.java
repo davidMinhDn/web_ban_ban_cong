@@ -23,6 +23,6 @@ public class TreeImage {
 
     @ManyToOne
     @JoinColumn(name = "tree_id")
-    private Tree flowers_and_trees;
+    private Tree tree;
 
 }

@@ -7,6 +7,6 @@ import java.util.List;
 public interface IProductService {
     public Product getProductByID(Long id);
     public List<Product> getAllProduct();
-
+    public List<Product> getProductByCategory(Long id);
     public  void deleteProduct(Long id);
 }

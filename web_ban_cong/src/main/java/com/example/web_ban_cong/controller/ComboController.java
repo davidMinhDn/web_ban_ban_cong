@@ -68,13 +68,14 @@ public class ComboController {
     }
 
     @PostMapping("/add")
-    public String createCombo( @ModelAttribute Combo combo, Model model
+    public String createCombo( @ModelAttribute Combo combo, Model model, @RequestParam("stateSale") int sale
             , @RequestPart("file") MultipartFile file, @RequestParam("imageOther") MultipartFile[] images) throws IOException {
         Map<?, ?> uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
 
         // Lấy URL của file đã tải lên thành công
         String imageUrl = (String) uploadResult.get("secure_url");
         combo.setImage(imageUrl);
+        combo.setPageSale(sale);
         comboService.addCombo(combo);
         for (MultipartFile image : images) {
             Map<?, ?> uploadResult1 = cloudinary.uploader().upload(image.getBytes(), ObjectUtils.emptyMap());

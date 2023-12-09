@@ -9,7 +9,7 @@
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
     <link rel="icon" th:href="@{/images/favicon/1.png}" type="image/x-icon">
-    <title>Shop Category</title>
+    <title>Tree Detail</title>
 
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -472,7 +472,7 @@
 <div class="mobile-menu d-md-none d-block mobile-cart">
     <ul>
         <li class="active">
-            <a href="index.html">
+            <a href="/">
                 <i class="iconly-Home icli"></i>
                 <span>Home</span>
             </a>
@@ -515,15 +515,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadscrumb-contain">
-                    <h2>Shop Category</h2>
+                    <h2 th:text="${tree.getName()}"></h2>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item">
-                                <a href="index.html">
+                                <a href="/">
                                     <i class="fa-solid fa-house"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop Category</li>
+
+                            <li class="breadcrumb-item active" th:text="${tree.getName()}"></li>
                         </ol>
                     </nav>
                 </div>
@@ -533,121 +534,734 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Shop Section Start -->
-<section class="section-b-space shop-section">
+<!-- Product Left Sidebar Start -->
+<section class="product-section">
     <div class="container-fluid-lg">
         <div class="row">
-            <div class="col-custome-3">
-                <div class="left-box wow fadeInUp">
-                    <div class="shop-left-sidebar">
-                        <ul class="nav nav-pills mb-3 custom-nav-tab" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="0" data-bs-toggle="pill"
-                                        data-bs-target="#pills-vegetable" type="button" role="tab" aria-selected="false"
-                                         th:onclick="'redirect(0)'" >All Category <img th:src="@{/svg/1/vegetable.svg}"
-                                                                                class="blur-up lazyload" alt=""></button>
-                            </li>
+            <div class="col-xxl-9 col-xl-8 col-lg-7 wow fadeInUp">
+                <div class="row g-4">
+                    <div class="col-xl-6 wow fadeInUp">
+                        <div class="product-left-box">
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <div class="product-main-1 no-arrow">
+                                        <div th:each="treeImage : ${treeImages}">
+                                            <div class="slider-image">
+                                                <img th:src="${treeImage.getImageUrl()}" id="img-1"
+                                                     th:data-zoom-image="${treeImage.getImageUrl()}"
+                                                     class="img-fluid image_zoom_cls-0 blur-up lazyload" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <li class="nav-item" role="presentation" th:each="category : ${categories}">
-                                <input type="hidden" id="compareCategory" th:value="${categoryId}">
-                                <button class="nav-link" th:id="${category.getId()}" data-bs-toggle="pill" th:onclick="'redirect('+${category.getId()}+')'"
-                                        th:data-bs-target="'#pills-'+${category.getCategoryName()}" type="button" role="tab"
-                                        aria-controls="pills-beverages" aria-selected="false"  th:text="${category.getCategoryName()}"> <img
-                                        th:src="@{/svg/1/cup.svg}" class="blur-up lazyload" alt=""></button>
-                                <script>
-                                    // Hàm JavaScript để chuyển trang
-                                    function redirect(categoryId) {
-                                        window.location.href = "/product/category/"+categoryId;
-                                    }
-                                    var categoryId = document.getElementById("compareCategory").value;
-                                    var buttonCategory = document.getElementById(categoryId);
-                                    console.log(buttonCategory)
-                                        buttonCategory.setAttribute("class", "nav-link active");
-
-                                </script>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-custome-9">
-                <div class="show-button">
-                    <div class="filter-button d-inline-block d-lg-none">
-                        <a><i class="fa-solid fa-filter"></i> Filter Menu</a>
+                                <div class="col-12">
+                                    <div class="bottom-slider-image left-slider no-arrow slick-top">
+                                        <div th:each="image : ${treeImages}">
+                                            <div class="sidebar-image">
+                                                <img th:src="${image.getImageUrl()}"
+                                                     class="img-fluid blur-up lazyload" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="top-filter-menu">
-                        <div class="category-dropdown">
-                            <h5 class="text-content">Sort By :</h5>
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                        data-bs-toggle="dropdown">
-                                    <span>Most Popular</span> <i class="fa-solid fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="right-box-contain">
+                            <h6 class="offer-top">30% Off</h6>
+                            <h2 class="name" th:text="${tree.getName()}"></h2>
+                            <div class="price-rating">
+                                <h3 class="theme-color price" th:text="${tree.getPrice()}"> <del class="text-content" th:text="${tree.getPriceOther()}"></del> <span
+                                        class="offer theme-color">(8% off)</span></h3>
+                                <div class="product-rating custom-rate">
+                                    <ul class="rating">
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star"></i>
+                                        </li>
+                                    </ul>
+                                    <span class="review">23 Customer Review</span>
+                                </div>
+                            </div>
+
+                            <div class="procuct-contain">
+                                <p th:text="${tree.getTitle()}"></p>
+                            </div>
+
+                            <div class="product-packege">
+                                <div class="product-title">
+                                    <h4>Weight</h4>
+                                </div>
+                                <ul class="select-packege">
                                     <li>
-                                        <a class="dropdown-item" id="pop" href="javascript:void(0)">Popularity</a>
+                                        <a href="javascript:void(0)" class="active">1/2 KG</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="low" href="javascript:void(0)">Low - High
-                                            Price</a>
+                                        <a href="javascript:void(0)">1 KG</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="high" href="javascript:void(0)">High - Low
-                                            Price</a>
+                                        <a href="javascript:void(0)">1.5 KG</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="rating" href="javascript:void(0)">Average
-                                            Rating</a>
+                                        <a href="javascript:void(0)">Red Roses</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="aToz" href="javascript:void(0)">A - Z Order</a>
+                                        <a href="javascript:void(0)">With Pink Roses</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="note-box product-packege">
+                                <div class="cart_qty qty-box product-qty">
+                                    <div class="input-group">
+                                        <button type="button" class="qty-right-plus" data-type="plus" data-field="">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </button>
+                                        <input class="form-control input-number qty-input" type="text"
+                                               name="quantity" value="0">
+                                        <button type="button" class="qty-left-minus" data-type="minus"
+                                                data-field="">
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <button onclick="location.href = 'cart.html';"
+                                        class="btn btn-md bg-dark cart-button text-white w-100">Add To Cart</button>
+                            </div>
+
+                            <div class="buy-box">
+                                <a href="wishlist.html">
+                                    <i data-feather="heart"></i>
+                                    <span>Add To Wishlist</span>
+                                </a>
+
+                                <a href="compare.html">
+                                    <i data-feather="shuffle"></i>
+                                    <span>Add To Compare</span>
+                                </a>
+                            </div>
+
+                            <div class="pickup-box">
+                                <div class="product-info">
+                                    <ul class="product-info-list product-info-list-2">
+                                        <li>Mùa đẹp nhất: <a href="javascript:void(0)" th:text="${tree.getMostSeason()}"></a></li>
+                                        <li>Màu  : <a href="javascript:void(0)" th:text="${tree.getFlowerColor()}"></a></li>
+                                        <li>Số lượng : <a href="javascript:void(0)" th:text="${tree.getQuantity()}"></a></li>
+                                        <li>Ngày nhập cây về : <a href="javascript:void(0)" th:text="${tree.getArrivalDate()}"></a></li>
+                                        <li>Độ tuổi của cây : <a href="javascript:void(0)" >1 năm </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="paymnet-option">
+                                <div class="product-title">
+                                    <h4>Guaranteed Safe Checkout</h4>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img th:src="@{/images/product/payment/1.svg}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="zToa" href="javascript:void(0)">Z - A Order</a>
+                                        <a href="javascript:void(0)">
+                                            <img th:src="@{/images/product/payment/2.svg}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" id="off" href="javascript:void(0)">% Off - Hight To
-                                            Low</a>
+                                        <a href="javascript:void(0)">
+                                            <img th:src="@{/images/product/payment/3.svg}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img th:src="@{/images/product/payment/4.svg}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img th:src="@{/images/product/payment/5.svg}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="grid-option d-none d-md-block">
+                    <div class="col-12">
+                        <div class="product-section-box">
+                            <ul class="nav nav-tabs custom-nav" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                            data-bs-target="#description" type="button" role="tab"
+                                            aria-controls="description" aria-selected="true">Miêu tả</button>
+                                </li>
+
+
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="review-tab" data-bs-toggle="tab"
+                                            data-bs-target="#review" type="button" role="tab" aria-controls="review"
+                                            aria-selected="false">Đánh giá</button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content custom-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                     aria-labelledby="description-tab">
+                                    <div class="product-description">
+                                        <div class="nav-desh">
+                                            <div class="desh-title">
+                                                <h5>Mô tả :</h5>
+                                            </div>
+                                            <p th:text="${tree.getDescription()}"></p>
+                                        </div>
+                                        <div class="nav-desh">
+                                            <div class="desh-title">
+                                                <h5>Cách chăm sóc :</h5>
+                                            </div>
+                                            <p th:text="${tree.getHowToCare()}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                                    <div class="review-box">
+                                        <div class="row g-4">
+                                            <div class="col-xl-6">
+                                                <div class="review-title">
+                                                    <h4 class="fw-500">Customer reviews</h4>
+                                                </div>
+
+                                                <div class="d-flex">
+                                                    <div class="product-rating">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <h6 class="ms-3">4.2 Out Of 5</h6>
+                                                </div>
+
+                                                <div class="rating-box">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="rating-list">
+                                                                <h5>5 Star</h5>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                         style="width: 68%" aria-valuenow="100"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                        68%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="rating-list">
+                                                                <h5>4 Star</h5>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                         style="width: 67%" aria-valuenow="100"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                        67%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="rating-list">
+                                                                <h5>3 Star</h5>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                         style="width: 42%" aria-valuenow="100"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                        42%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="rating-list">
+                                                                <h5>2 Star</h5>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                         style="width: 30%" aria-valuenow="100"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                        30%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="rating-list">
+                                                                <h5>1 Star</h5>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                         style="width: 24%" aria-valuenow="100"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                        24%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6">
+                                                <div class="review-title">
+                                                    <h4 class="fw-500">Add a review</h4>
+                                                </div>
+
+                                                <div class="row g-4">
+                                                    <div class="col-md-6">
+                                                        <div class="form-floating theme-form-floating">
+                                                            <input type="text" class="form-control" id="name"
+                                                                   placeholder="Name">
+                                                            <label for="name">Your Name</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-floating theme-form-floating">
+                                                            <input type="email" class="form-control" id="email"
+                                                                   placeholder="Email Address">
+                                                            <label for="email">Email Address</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-floating theme-form-floating">
+                                                            <input type="url" class="form-control" id="website"
+                                                                   placeholder="Website">
+                                                            <label for="website">Website</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-floating theme-form-floating">
+                                                            <input type="url" class="form-control" id="review1"
+                                                                   placeholder="Give your review a title">
+                                                            <label for="review1">Review Title</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-floating theme-form-floating">
+                                                                <textarea class="form-control"
+                                                                          placeholder="Leave a comment here"
+                                                                          id="floatingTextarea2"
+                                                                          style="height: 150px"></textarea>
+                                                            <label for="floatingTextarea2">Write Your
+                                                                Comment</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="review-title">
+                                                    <h4 class="fw-500">Customer questions & answers</h4>
+                                                </div>
+
+                                                <div class="review-people">
+                                                    <ul class="review-list">
+                                                        <li>
+                                                            <div class="people-box">
+                                                                <div>
+                                                                    <div class="people-image">
+                                                                        <img th:src="@{/images/review/1.jpg}"
+                                                                             class="img-fluid blur-up lazyload"
+                                                                             alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="people-comment">
+                                                                    <a class="name"
+                                                                       href="javascript:void(0)">Tracey</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content">14 Jan, 2022 at
+                                                                            12.58 AM</h6>
+
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reply">
+                                                                        <p>Icing cookie carrot cake chocolate cake
+                                                                            sugar plum jelly-o danish. Dragée dragée
+                                                                            shortbread tootsie roll croissant muffin
+                                                                            cake I love gummi bears. Candy canes ice
+                                                                            cream caramels tiramisu marshmallow cake
+                                                                            shortbread candy canes cookie.<a
+                                                                                    href="javascript:void(0)">Reply</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="people-box">
+                                                                <div>
+                                                                    <div class="people-image">
+                                                                        <img th:src="@{/images/review/2.jpg}"
+                                                                             class="img-fluid blur-up lazyload"
+                                                                             alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="people-comment">
+                                                                    <a class="name"
+                                                                       href="javascript:void(0)">Olivia</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content">01 May, 2022 at
+                                                                            08.31 AM</h6>
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reply">
+                                                                        <p>Tootsie roll cake danish halvah powder
+                                                                            Tootsie roll candy marshmallow cookie
+                                                                            brownie apple pie pudding brownie
+                                                                            chocolate bar. Jujubes gummi bears I
+                                                                            love powder danish oat cake tart
+                                                                            croissant.<a
+                                                                                    href="javascript:void(0)">Reply</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <div class="people-box">
+                                                                <div>
+                                                                    <div class="people-image">
+                                                                        <img th:src="@{/images/review/3.jpg}"
+                                                                             class="img-fluid blur-up lazyload"
+                                                                             alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="people-comment">
+                                                                    <a class="name"
+                                                                       href="javascript:void(0)">Gabrielle</a>
+                                                                    <div class="date-time">
+                                                                        <h6 class="text-content">21 May, 2022 at
+                                                                            05.52 PM</h6>
+
+                                                                        <div class="product-rating">
+                                                                            <ul class="rating">
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"
+                                                                                       class="fill"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <i data-feather="star"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reply">
+                                                                        <p>Biscuit chupa chups gummies powder I love
+                                                                            sweet pudding jelly beans. Lemon drops
+                                                                            marzipan apple pie gingerbread macaroon
+                                                                            croissant cotton candy pastry wafer.
+                                                                            Carrot cake halvah I love tart caramels
+                                                                            pudding icing chocolate gummi bears.
+                                                                            Gummi bears danish cotton candy muffin
+                                                                            marzipan caramels awesome feel. <a
+                                                                                    href="javascript:void(0)">Reply</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-3 col-xl-4 col-lg-5 d-none d-lg-block wow fadeInUp">
+                <div class="right-sidebar-box">
+                    <div class="vendor-box">
+                        <div class="verndor-contain">
+                            <div class="vendor-image">
+                                <img th:src="@{/images/product/vendor.png}" class="blur-up lazyload" alt="">
+                            </div>
+
+                            <div class="vendor-name">
+                                <h5 class="fw-500">Nhà Xanh</h5>
+
+                                <div class="product-rating mt-1">
+                                    <ul class="rating">
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star" class="fill"></i>
+                                        </li>
+                                        <li>
+                                            <i data-feather="star"></i>
+                                        </li>
+                                    </ul>
+                                    <span>(36 Reviews)</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <p class="vendor-detail">Cung cấp sản phẩm cây trồng, thiết kế và thi công ban công, sân vườn uy tín số 1 Hà Nội</p>
+
+                        <div class="vendor-list">
                             <ul>
-                                <li class="three-grid">
-                                    <a href="javascript:void(0)">
-                                        <img th:src="@{/svg/grid-3.svg}" class="blur-up lazyload" alt="">
-                                    </a>
+                                <li>
+                                    <div class="address-contact">
+                                        <i data-feather="map-pin"></i>
+                                        <h5>Địa chỉ: <span class="text-content">58 Hoàng Công Chất</span></h5>
+                                    </div>
                                 </li>
-                                <li class="grid-btn d-xxl-inline-block d-none active">
-                                    <a href="javascript:void(0)">
-                                        <img th:src="@{/svg/grid-4.svg}"
-                                             class="blur-up lazyload d-lg-inline-block d-none" alt="">
-                                        <img th:src="@{/svg/grid.svg}"
-                                             class="blur-up lazyload img-fluid d-lg-none d-inline-block" alt="">
-                                    </a>
-                                </li>
-                                <li class="list-btn">
-                                    <a href="javascript:void(0)">
-                                        <img th:src="@{/svg/list.svg}" class="blur-up lazyload" alt="">
-                                    </a>
+
+                                <li>
+                                    <div class="address-contact">
+                                        <i data-feather="headphones"></i>
+                                        <h5>Contact Seller: <span class="text-content">(+84)37 380 1816</span></h5>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
 
-                <div
-                        class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section" id="fillProduct">
-                    <div th:each="product : ${products}">
-                        <div class="product-box-3 h-100 wow fadeInUp" >
+                    <!-- Trending Product -->
+                    <div class="pt-25">
+                        <div class="category-menu">
+                            <h3>Trending Products</h3>
+
+                            <ul class="product-list product-right-sidebar border-0 p-0">
+                                <li>
+                                    <div class="offer-product">
+                                        <a href="product-left-thumbnail.html" class="offer-image">
+                                            <img th:src="@{/images/vegetable/product/23.png}"
+                                                 class="img-fluid blur-up lazyload" alt="">
+                                        </a>
+
+                                        <div class="offer-detail">
+                                            <div>
+                                                <a href="product-left-thumbnail.html">
+                                                    <h6 class="name">Meatigo Premium Goat Curry</h6>
+                                                </a>
+                                                <span>450 G</span>
+                                                <h6 class="price theme-color">$ 70.00</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="offer-product">
+                                        <a href="product-left-thumbnail.html" class="offer-image">
+                                            <img th:src="@{/images/vegetable/product/24.png}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
+
+                                        <div class="offer-detail">
+                                            <div>
+                                                <a href="product-left-thumbnail.html">
+                                                    <h6 class="name">Dates Medjoul Premium Imported</h6>
+                                                </a>
+                                                <span>450 G</span>
+                                                <h6 class="price theme-color">$ 40.00</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="offer-product">
+                                        <a href="product-left-thumbnail.html" class="offer-image">
+                                            <img th:src="@{/images/vegetable/product/25.png}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
+
+                                        <div class="offer-detail">
+                                            <div>
+                                                <a href="product-left-thumbnail.html">
+                                                    <h6 class="name">Good Life Walnut Kernels</h6>
+                                                </a>
+                                                <span>200 G</span>
+                                                <h6 class="price theme-color">$ 52.00</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="mb-0">
+                                    <div class="offer-product">
+                                        <a href="product-left-thumbnail.html" class="offer-image">
+                                            <img th:src="@{/images/vegetable/product/26.png}"
+                                                 class="blur-up lazyload" alt="">
+                                        </a>
+
+                                        <div class="offer-detail">
+                                            <div>
+                                                <a href="product-left-thumbnail.html">
+                                                    <h6 class="name">Apple Red Premium Imported</h6>
+                                                </a>
+                                                <span>1 KG</span>
+                                                <h6 class="price theme-color">$ 80.00</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Banner Section -->
+                    <div class="ratio_156 pt-25">
+                        <div class="home-contain">
+                            <img th:src="@{/images/vegetable/banner/8.jpg}" class="bg-img blur-up lazyload"
+                                 alt="">
+                            <div class="home-detail p-top-left home-p-medium">
+                                <div>
+                                    <h6 class="text-yellow home-banner">Seafood</h6>
+                                    <h3 class="text-uppercase fw-normal"><span
+                                            class="theme-color fw-bold">Freshes</span> Products</h3>
+                                    <h3 class="fw-light">every hour</h3>
+                                    <button onclick="location.href = 'shop-left-sidebar.html';"
+                                            class="btn btn-animation btn-md fw-bold mend-auto">Shop Now <i
+                                            class="fa-solid fa-arrow-right icon"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Left Sidebar End -->
+
+<!-- Releted Product Section Start -->
+<section class="product-list-section section-b-space">
+    <div class="container-fluid-lg">
+        <div class="title">
+            <h2>Các sản phẩm liên quan</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-6_1 product-wrapper">
+                    <div th:each="tr : ${treeRelated}">
+                        <div class="product-box-3 wow fadeInUp">
                             <div class="product-header">
                                 <div class="product-image">
-                                    <a th:href="@{'/product/detail/'+${product.getId()}}">
-                                        <img th:src="${product.getImage()}"
+                                    <a th:href="'/tree/detail/' + ${tr.getId()}">
+                                        <img th:src="${tr.getImage()}"
                                              class="img-fluid blur-up lazyload" alt="">
                                     </a>
 
@@ -673,13 +1287,13 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="product-footer">
                                 <div class="product-detail">
-                                    <span class="span-name" th:text="${product.getCategory().getCategoryName()}"></span>
+                                    <span class="span-name" th:text="${tr.getCategoryTree().getName()}"></span>
                                     <a href="product-left-thumbnail.html">
-                                        <h5 class="name" th:text="${product.getName()}"></h5>
+                                        <h5 class="name" th:text="${tr.getName()}"></h5>
                                     </a>
-                                    <p class="text-content mt-1 mb-2 product-content" th:text="${product.getTitle()}"></p>
                                     <div class="product-rating mt-2">
                                         <ul class="rating">
                                             <li>
@@ -695,13 +1309,102 @@
                                                 <i data-feather="star" class="fill"></i>
                                             </li>
                                             <li>
-                                                <i data-feather="star"></i>
+                                                <i data-feather="star" class="fill"></i>
                                             </li>
                                         </ul>
-                                        <span>(4.0)</span>
+                                        <span>(5.0)</span>
                                     </div>
-                                    <h6 class="unit" th:text="${product.getSize()}"></h6>
-                                    <h5 class="price"><span class="theme-color" th:text="${product.getPrice()}"></span> <del th:text="${product.getPriceOther()}"></del>
+                                    <h6 class="unit" th:text="${tr.getSize()}"></h6>
+                                    <h5 class="price"><span class="theme-color" th:text="${tr.getPrice()}"></span> <del th:text="${tr.getPriceOther()}"></del>
+                                    </h5>
+                                    <div class="add-to-cart-box bg-white">
+                                        <button class="btn btn-add-cart addcart-button">Add
+                                            <span class="add-icon bg-light-gray">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                        </button>
+                                        <div class="cart_qty qty-box">
+                                            <div class="input-group bg-white">
+                                                <button type="button" class="qty-left-minus bg-gray"
+                                                        data-type="minus" data-field="">
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+                                                <input class="form-control input-number qty-input" type="text"
+                                                       name="quantity" value="0">
+                                                <button type="button" class="qty-right-plus bg-gray"
+                                                        data-type="plus" data-field="">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div th:each="tr : ${treeNotRelated}">
+                        <div class="product-box-3 wow fadeInUp">
+                            <div class="product-header">
+                                <div class="product-image">
+                                    <a th:href="'/tree/detail/' + ${tr.getId()}">
+                                        <img th:src="${tr.getImage()}"
+                                             class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                               data-bs-target="#view">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-detail">
+                                    <span class="span-name" th:text="${tr.getCategoryTree().getName()}"></span>
+                                    <a href="product-left-thumbnail.html">
+                                        <h5 class="name" th:text="${tr.getName()}"></h5>
+                                    </a>
+                                    <div class="product-rating mt-2">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                        </ul>
+                                        <span>(5.0)</span>
+                                    </div>
+                                    <h6 class="unit" th:text="${tr.getSize()}"></h6>
+                                    <h5 class="price"><span class="theme-color" th:text="${tr.getPrice()}"></span> <del th:text="${tr.getPriceOther()}"></del>
                                     </h5>
                                     <div class="add-to-cart-box bg-white">
                                         <button class="btn btn-add-cart addcart-button">Add
@@ -729,35 +1432,11 @@
                         </div>
                     </div>
                 </div>
-
-                <nav class="custome-pagination">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-disabled="true">
-                                <i class="fa-solid fa-angles-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="javascript:void(0)">1</a>
-                        </li>
-                        <li class="page-item" aria-current="page">
-                            <a class="page-link" href="javascript:void(0)">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)">
-                                <i class="fa-solid fa-angles-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
 </section>
-<!-- Shop Section End -->
+<!-- Releted Product Section End -->
 
 <!-- Footer Section Start -->
 <footer class="section-t-space">
@@ -815,7 +1494,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="footer-logo">
                         <div class="theme-logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img th:src="@{/images/logo/1.png}" class="blur-up lazyload" alt="">
                             </a>
                         </div>
@@ -875,7 +1554,7 @@
                     <div class="footer-contain">
                         <ul>
                             <li>
-                                <a href="index.html" class="text-content">Home</a>
+                                <a href="/" class="text-content">Home</a>
                             </li>
                             <li>
                                 <a href="shop-left-sidebar.html" class="text-content">Shop</a>
@@ -1300,7 +1979,7 @@
 <!-- Add to cart Modal Start -->
 <div class="add-cart-box">
     <div class="add-iamge">
-        <img th:src="@{/images/cake/pro/1.jpg}" class="img-fluid blur-up lazyload" alt="">
+        <img th:src="@{/images/cake/pro/1.jpg}" class="img-fluid" alt="">
     </div>
 
     <div class="add-contain">
@@ -1319,27 +1998,50 @@
 </div>
 <!-- Tap to top end -->
 
+<!-- Sticky Cart Box Start -->
+<div class="sticky-bottom-cart">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-12">
+                <div class="cart-content">
+                    <div class="product-image">
+                        <img th:src="${tree.getImage()}" class="img-fluid blur-up lazyload"
+                             alt="">
+                        <div class="content">
+                            <h5 th:text="${tree.getName()}"></h5>
+                            <h6 th:text="${tree.getPrice()}"><del class="text-danger" th:text="${tree.getPriceOther()}"></del></h6>
+                        </div>
+                    </div>
+                    <div class="selection-section">
+                        <div class="cart_qty qty-box product-qty m-0">
+                            <div class="input-group h-100">
+                                <button type="button" class="qty-left-minus" data-type="minus" data-field="">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <input class="form-control input-number qty-input" type="text" name="quantity"
+                                       value="1">
+                                <button type="button" class="qty-right-plus" data-type="plus" data-field="">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-btn">
+                        <a class="btn theme-bg-color text-white wishlist-btn" href="wishlist.html"><i
+                                class="fa fa-bookmark"></i> Wishlist</a>
+                        <a class="btn theme-bg-color text-white" href="cart.html"><i
+                                class="fas fa-shopping-cart"></i> Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sticky Cart Box End -->
+
 <!-- Bg overlay Start -->
 <div class="bg-overlay"></div>
 <!-- Bg overlay End -->
-<!--<script>-->
-
-
-<!--    function fillProduct(categoryId){-->
-<!--        $.ajax({-->
-<!--            type: "GET",-->
-<!--            url: "/product/fillCategory/" + categoryId,-->
-<!--            success: function (data) {-->
-<!--                var row = document.getElementById("fillProduct");-->
-
-<!--                row.innerHTML = data;-->
-<!--                $.getScript("../../static/js/feather/feather-icon.js", function () {-->
-<!--                    console.log("dsfhgsydfgsrehgf")-->
-<!--                });-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
 
 <!-- latest jquery-->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
@@ -1362,16 +2064,27 @@
 <!-- Slick js-->
 <script th:src="@{/js/slick/slick.js}"></script>
 <script th:src="@{/js/slick/slick-animation.min.js}"></script>
+<script th:src="@{/js/custom-slick-animated.js}"></script>
 <script th:src="@{/js/slick/custom_slick.js}"></script>
 
 <!-- Price Range Js -->
 <script th:src="@{/js/ion.rangeSlider.min.js}"></script>
 
+<!-- sidebar open js -->
+<script th:src="@{/js/filter-sidebar.js}"></script>
+
 <!-- Quantity js -->
 <script th:src="@{/js/quantity-2.js}"></script>
 
-<!-- sidebar open js -->
-<script th:src="@{/js/filter-sidebar.js}"></script>
+<!-- Zoom Js -->
+<script th:src="@{/js/jquery.elevatezoom.js}"></script>
+<script th:src="@{/js/zoom-filter.js}"></script>
+
+<!-- Timer Js -->
+<script th:src="@{/js/timer1.js}"></script>
+
+<!-- Sticky-bar js -->
+<script th:src="@{/js/sticky-cart-bottom.js}"></script>
 
 <!-- WOW js -->
 <script th:src="@{/js/wow.min.js}"></script>

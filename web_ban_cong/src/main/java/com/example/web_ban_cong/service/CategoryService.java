@@ -23,7 +23,12 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public Category addCategory(Category category) {
-        return categoryRepository.save(category);
+    public void addCategory(Category category) {
+        categoryRepository.save(category);
+    }
+
+    @Override
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
     }
 }

@@ -37,13 +37,19 @@ public class TreeController {
     @GetMapping("/detail/{treeID}")
     public String treeDetail(@PathVariable(name = "treeID") Long id, Model model){
         Tree tree = treeService.getTreeById(id);
-        System.out.println(tree.getHowToCare());
-        if(tree != null){
-            model.addAttribute("tree", tree);
-            return "front-end/product-left-thumbnail.html";
-        }else {
-            return "front-end/404";
+        List<TreeImage> treeImages = treeImageRepository.findByTreeId(id);
+        List<Tree> treeRelated  =  treeService.getTreeByCategory(tree.getCategoryTree().getId());
+        treeRelated.remove(tree);
+        List<Tree> treeNotRelated = treeService.getAllTree();
+        for (Tree tr:
+             treeRelated) {
+            treeNotRelated.remove(tr);
         }
+        model.addAttribute("treeNotRelated", treeNotRelated);
+        model.addAttribute("treeRelated", treeRelated);
+        model.addAttribute("treeImages", treeImages);
+        model.addAttribute("tree", tree);
+        return "front-end/tree-detail";
     }
 
     @GetMapping("/add")
@@ -54,6 +60,20 @@ public class TreeController {
         return "back-end/add-new-tree";
 
     }
+    @GetMapping("/category/{categoryId}")
+    public String treeByCategory( @PathVariable("categoryId") Long id,Model model){
+        List<CategoryTree> categoryTrees = categoryTreeService.getAllCategory();
+        List<Tree> trees;
+        if(id == 0){
+            trees = treeService.getAllTree();
+        }else {
+            trees = treeService.getTreeByCategory(id);
+        }
+        model.addAttribute("categoryId", id);
+        model.addAttribute("categoryTrees", categoryTrees);
+        model.addAttribute("trees", trees);
+        return "front-end/shop-category-tree";
+    }
 
     @PostMapping("/add")
     public String addTree(@ModelAttribute Tree tree, @RequestParam("stateProduct") Long id
@@ -62,7 +82,7 @@ public class TreeController {
         String imageUrl = (String) uploadResult.get("secure_url");
         CategoryTree categoryTree = categoryTreeService.getCategoryById(id);
         tree.setImage(imageUrl);
-        tree.setCategory_tree(categoryTree);
+        tree.setCategoryTree(categoryTree);
         System.out.println(tree.getName());
         treeService.addTree(tree);
         for (MultipartFile image : images) {
@@ -70,7 +90,7 @@ public class TreeController {
 
             // Lấy URL của file đã tải lên thành công
             String imageUrlOther = (String) uploadResult1.get("secure_url");
-            treeImageRepository.save(TreeImage.builder().flowers_and_trees(tree).imageUrl(imageUrlOther).build());
+            treeImageRepository.save(TreeImage.builder().tree(tree).imageUrl(imageUrlOther).build());
         }
         return "redirect:/tree/add";
     }

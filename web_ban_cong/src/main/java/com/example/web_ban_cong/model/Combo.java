@@ -41,6 +41,9 @@ public class Combo {
     @Column(name = "price_other")
     private double priceOther;
 
+    @Column(name = "page_sale")
+    private int pageSale;
+
     @ManyToMany
     @JoinTable(
             name = "combo_product",

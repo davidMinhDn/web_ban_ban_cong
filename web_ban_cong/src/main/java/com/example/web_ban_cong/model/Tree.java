@@ -63,9 +63,9 @@ public class Tree {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private CategoryTree category_tree;
+    private CategoryTree categoryTree;
 
-    @OneToMany(mappedBy = "flowers_and_trees")
+    @OneToMany(mappedBy = "tree")
     private List<TreeImage> treeImages;
 
     @ManyToMany(mappedBy = "flowers_and_trees")

@@ -206,7 +206,7 @@
             <div id="sidebarEffect"></div>
             <div>
                 <div class="logo-wrapper logo-wrapper-center">
-                    <a href="index.html" data-bs-original-title="" title="">
+                    <a th:href="@{/manager/}" data-bs-original-title="" title="">
                         <img class="img-fluid for-white" th:src="@{/back-end-images/logo/full-white.png}" alt="logo">
                     </a>
                     <div class="back-btn">
@@ -217,7 +217,7 @@
                     </div>
                 </div>
                 <div class="logo-icon-wrapper">
-                    <a href="index.html">
+                    <a th:href="@{/manager/}">
                         <img class="img-fluid main-logo main-white" th:src="@{/back-end-images/logo/logo.png}" alt="logo">
                         <img class="img-fluid main-logo main-dark" th:src="@{/back-end-images/logo/logo-white.png}"
                              alt="logo">
@@ -233,7 +233,7 @@
                             <li class="back-btn"></li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav" href="index.html">
+                                <a class="sidebar-link sidebar-title link-nav" th:href="@{/manager/}">
                                     <i class="ri-home-line"></i>
                                     <span>Dashboard</span>
                                 </a>
@@ -246,11 +246,11 @@
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a th:href="@{/manager/all}">Prodcts</a>
+                                        <a th:href="@{/manager/all}">Danh sách sản phẩm</a>
                                     </li>
 
                                     <li>
-                                        <a th:href="@{/product/add}">Add New Products</a>
+                                        <a th:href="@{/product/add}">Thêm sản phẩm</a>
                                     </li>
                                 </ul>
                             </li>
@@ -273,32 +273,32 @@
 
                             <li class="sidebar-list">
                                 <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                    <i class="ri-list-check-2"></i>
-                                    <span>Tree</span>
+                                    <i class="ri-store-3-line"></i>
+                                    <span>Category</span>
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a th:href="@{/manager/tree/all}">Tree List</a>
+                                        <a th:href="@{/category/tree/add}">Thêm loại cây mới</a>
                                     </li>
 
                                     <li>
-                                        <a th:href="@{/tree/add}">Add New Tree</a>
+                                        <a th:href="@{/category/tree/add}">Thêm loại sản phẩm mới</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                    <i class="ri-list-settings-line"></i>
-                                    <span>Attributes</span>
+                                    <i class="ri-list-check-2"></i>
+                                    <span>Tree</span>
                                 </a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="attributes.html">Attributes</a>
+                                        <a th:href="@{/manager/tree/all}">Danh sách cây</a>
                                     </li>
 
                                     <li>
-                                        <a href="add-new-attributes.html">Add Attributes</a>
+                                        <a th:href="@{/tree/add}">Thêm cây mới</a>
                                     </li>
                                 </ul>
                             </li>
@@ -354,22 +354,6 @@
                                     </li>
                                     <li>
                                         <a href="order-tracking.html">Order Tracking</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list">
-                                <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                                    <i class="ri-focus-3-line"></i>
-                                    <span>Localization</span>
-                                </a>
-                                <ul class="sidebar-submenu">
-                                    <li>
-                                        <a href="translation.html">Translation</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="currency-rates.html">Currency Rates</a>
                                     </li>
                                 </ul>
                             </li>
@@ -477,7 +461,19 @@
                                                            placeholder="Nội dung" th:field="*{title}">
                                                 </div>
                                             </div>
-
+                                            <div class="mb-4 row align-items-center">
+                                                <label
+                                                        class="col-sm-3 col-form-label form-label-title">Sale top mấy</label>
+                                                <div class="col-sm-9">
+                                                    <select class="js-example-basic-single w-100" name="stateSale">
+                                                        <option disabled>Top Sale</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="mb-4 row align-items-center">
                                                 <label class="form-label-title col-sm-3 mb-0">Mô tả</label>
                                                 <div class="col-sm-9">

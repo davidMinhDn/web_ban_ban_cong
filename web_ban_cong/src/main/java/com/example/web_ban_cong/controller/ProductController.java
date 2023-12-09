@@ -7,7 +7,6 @@ import com.example.web_ban_cong.model.Product;
 import com.example.web_ban_cong.model.ProductImage;
 import com.example.web_ban_cong.repository.*;
 import com.example.web_ban_cong.service.CategoryService;
-import com.example.web_ban_cong.service.CloudinaryService;
 import com.example.web_ban_cong.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,9 +36,18 @@ public class ProductController {
     public String detailProduct(@PathVariable(name = "product_id") Long id, Model model){
         Product product = productService.getProductByID(id);
         List<ProductImage> productImages = productImageRepository.findByProductId(id);
+        List<Product> productsRelated = productRepository.findByCategory_id(product.getCategory().getId());
+        productsRelated.remove(product);
+        List<Product> productsNotRelated = productService.getAllProduct();
+        for (Product pro:
+             productsRelated) {
+            productsNotRelated.remove(pro);
+        }
+        model.addAttribute("productsRelated", productsRelated);
+        model.addAttribute("productsNotRelated", productsNotRelated);
         model.addAttribute("product", product);
         model.addAttribute("productImages", productImages);
-        return "front-end/product-bottom-thumbnail";
+        return "front-end/product-detail";
     }
 
     @GetMapping("/all")
@@ -126,5 +134,20 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.ok("Sản phẩm đã được xóa thành công");
     }
+    @GetMapping("/category/{categoryId}")
+    public String displayProductByCategory(@PathVariable(name = "categoryId") Long id, Model model){
+        List<Category> categories = categoryService.getAllCategory();
+        List<Product> products ;
+        if(id == 0){
+            products = productService.getAllProduct();
+        }else {
+            products = productRepository.findByCategory_id(id);
+        }
+        model.addAttribute("categoryId", id);
+        model.addAttribute("categories", categories);
+        model.addAttribute("products", products);
+        return "front-end/shop-category";
+    }
+
 
 }

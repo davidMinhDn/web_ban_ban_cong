@@ -544,25 +544,25 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="0" data-bs-toggle="pill"
                                         data-bs-target="#pills-vegetable" type="button" role="tab" aria-selected="false"
-                                         th:onclick="'redirect(0)'" >All Category <img th:src="@{/svg/1/vegetable.svg}"
-                                                                                class="blur-up lazyload" alt=""></button>
+                                        th:onclick="'redirect(0)'" >All Category <img th:src="@{/svg/1/vegetable.svg}"
+                                                                                      class="blur-up lazyload" alt=""></button>
                             </li>
 
-                            <li class="nav-item" role="presentation" th:each="category : ${categories}">
+                            <li class="nav-item" role="presentation" th:each="category : ${categoryTrees}">
                                 <input type="hidden" id="compareCategory" th:value="${categoryId}">
                                 <button class="nav-link" th:id="${category.getId()}" data-bs-toggle="pill" th:onclick="'redirect('+${category.getId()}+')'"
-                                        th:data-bs-target="'#pills-'+${category.getCategoryName()}" type="button" role="tab"
-                                        aria-controls="pills-beverages" aria-selected="false"  th:text="${category.getCategoryName()}"> <img
+                                        th:data-bs-target="'#pills-'+${category.getName()}" type="button" role="tab"
+                                        aria-controls="pills-beverages" aria-selected="false"  th:text="${category.getName()}"> <img
                                         th:src="@{/svg/1/cup.svg}" class="blur-up lazyload" alt=""></button>
                                 <script>
                                     // Hàm JavaScript để chuyển trang
                                     function redirect(categoryId) {
-                                        window.location.href = "/product/category/"+categoryId;
+                                        window.location.href = "/tree/category/"+categoryId;
                                     }
                                     var categoryId = document.getElementById("compareCategory").value;
                                     var buttonCategory = document.getElementById(categoryId);
                                     console.log(buttonCategory)
-                                        buttonCategory.setAttribute("class", "nav-link active");
+                                    buttonCategory.setAttribute("class", "nav-link active");
 
                                 </script>
                             </li>
@@ -642,12 +642,12 @@
 
                 <div
                         class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section" id="fillProduct">
-                    <div th:each="product : ${products}">
+                    <div th:each="tree : ${trees}">
                         <div class="product-box-3 h-100 wow fadeInUp" >
                             <div class="product-header">
                                 <div class="product-image">
-                                    <a th:href="@{'/product/detail/'+${product.getId()}}">
-                                        <img th:src="${product.getImage()}"
+                                    <a th:href="@{'/tree/detail/'+${tree.getId()}}">
+                                        <img th:src="${tree.getImage()}"
                                              class="img-fluid blur-up lazyload" alt="">
                                     </a>
 
@@ -675,11 +675,11 @@
                             </div>
                             <div class="product-footer">
                                 <div class="product-detail">
-                                    <span class="span-name" th:text="${product.getCategory().getCategoryName()}"></span>
+                                    <span class="span-name" th:text="${tree.getCategoryTree().getName()}"></span>
                                     <a href="product-left-thumbnail.html">
-                                        <h5 class="name" th:text="${product.getName()}"></h5>
+                                        <h5 class="name" th:text="${tree.getName()}"></h5>
                                     </a>
-                                    <p class="text-content mt-1 mb-2 product-content" th:text="${product.getTitle()}"></p>
+                                    <p class="text-content mt-1 mb-2 product-content" th:text="${tree.getTitle()}"></p>
                                     <div class="product-rating mt-2">
                                         <ul class="rating">
                                             <li>
@@ -700,8 +700,8 @@
                                         </ul>
                                         <span>(4.0)</span>
                                     </div>
-                                    <h6 class="unit" th:text="${product.getSize()}"></h6>
-                                    <h5 class="price"><span class="theme-color" th:text="${product.getPrice()}"></span> <del th:text="${product.getPriceOther()}"></del>
+                                    <h6 class="unit" th:text="${tree.getSize()}"></h6>
+                                    <h5 class="price"><span class="theme-color" th:text="${tree.getPrice()}"></span> <del th:text="${tree.getPriceOther()}"></del>
                                     </h5>
                                     <div class="add-to-cart-box bg-white">
                                         <button class="btn btn-add-cart addcart-button">Add
@@ -1322,24 +1322,7 @@
 <!-- Bg overlay Start -->
 <div class="bg-overlay"></div>
 <!-- Bg overlay End -->
-<!--<script>-->
 
-
-<!--    function fillProduct(categoryId){-->
-<!--        $.ajax({-->
-<!--            type: "GET",-->
-<!--            url: "/product/fillCategory/" + categoryId,-->
-<!--            success: function (data) {-->
-<!--                var row = document.getElementById("fillProduct");-->
-
-<!--                row.innerHTML = data;-->
-<!--                $.getScript("../../static/js/feather/feather-icon.js", function () {-->
-<!--                    console.log("dsfhgsydfgsrehgf")-->
-<!--                });-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
 
 <!-- latest jquery-->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>

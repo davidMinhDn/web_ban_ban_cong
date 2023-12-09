@@ -1,5 +1,6 @@
 package com.example.web_ban_cong.service;
 
+import com.example.web_ban_cong.model.Category;
 import com.example.web_ban_cong.model.Product;
 import com.example.web_ban_cong.repository.ComboProductRepository;
 import com.example.web_ban_cong.repository.ProductImageRepository;
@@ -19,6 +20,8 @@ public class ProductService implements IProductService{
     private ProductImageRepository productImageRepository;
     @Autowired
     private ComboProductRepository comboProductRepository;
+    @Autowired
+    private CategoryService categoryService;
     @Override
     public Product getProductByID(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
@@ -28,6 +31,11 @@ public class ProductService implements IProductService{
     @Override
     public List<Product> getAllProduct() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getProductByCategory(Long id) {
+        return productRepository.findByCategory_id(id);
     }
 
     @Override

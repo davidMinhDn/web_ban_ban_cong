@@ -1,5 +1,6 @@
 package com.example.web_ban_cong.service;
 
+import com.example.web_ban_cong.model.CategoryTree;
 import com.example.web_ban_cong.model.Tree;
 import com.example.web_ban_cong.repository.TreeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.Optional;
 public class TreeService implements ITreeService{
     @Autowired
     private TreeRepository treeRepository;
+    @Autowired
+    private CategoryTreeService categoryTreeService;
     @Override
     public Tree getTreeById(Long id) {
         Optional<Tree> treeOptional = treeRepository.findById(id);
@@ -24,8 +27,14 @@ public class TreeService implements ITreeService{
     }
 
     @Override
-    public Tree addTree(Tree tree) {
-        return treeRepository.save(tree);
+    public void addTree(Tree tree) {
+        treeRepository.save(tree);
+    }
+
+    @Override
+    public List<Tree> getTreeByCategory(Long categoryId) {
+        CategoryTree categoryTree = categoryTreeService.getCategoryById(categoryId);
+        return treeRepository.findByCategoryTree(categoryTree);
     }
 
 
