@@ -70,4 +70,7 @@ public class Tree {
 
     @ManyToMany(mappedBy = "flowers_and_trees")
     private List<Combo> combos = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "trees")
+    private List<User> users = new ArrayList<>();
 }

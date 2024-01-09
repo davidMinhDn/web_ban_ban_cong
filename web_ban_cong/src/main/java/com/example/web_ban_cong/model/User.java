@@ -7,7 +7,9 @@ import jakarta.validation.constraints.Past;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -40,4 +42,20 @@ public class User {
 
     @Column(name = "active")
     private boolean active;
+
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist_product",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist_tree",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "tree_id")
+    )
+    private List<Tree> trees = new ArrayList<>();
 }

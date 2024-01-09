@@ -1,20 +1,17 @@
 package com.example.web_ban_cong.controller;
 
-import com.example.web_ban_cong.model.Category;
-import com.example.web_ban_cong.model.CategoryTree;
-import com.example.web_ban_cong.model.Combo;
-import com.example.web_ban_cong.model.Product;
+import com.example.web_ban_cong.model.*;
 import com.example.web_ban_cong.repository.ComboImageRepository;
 import com.example.web_ban_cong.repository.ComboRepository;
-import com.example.web_ban_cong.service.CategoryService;
-import com.example.web_ban_cong.service.CategoryTreeService;
-import com.example.web_ban_cong.service.ComboService;
+import com.example.web_ban_cong.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 
 import java.util.List;
 
@@ -26,6 +23,29 @@ public class LoginController {
     private CategoryService categoryService;
     @Autowired
     private CategoryTreeService categoryTreeService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ManagerService managerService;
+    @PostMapping("/login")
+    public String login (@RequestPart("email") String email, @RequestPart("password") String pass,
+                         HttpSession session){
+        System.out.println(email);
+        System.out.println(pass);
+        User user = userService.loginByMailAndPass(email, pass);
+        if (user == null){
+            Manager manager = managerService.loginByMailAndPass(email, pass);
+            if(manager != null){
+                session.setAttribute("manager", manager);
+                return "redirect:/manager/";
+            }else {
+                return "front-end/404";
+            }
+        }else {
+            session.setAttribute("user", user);
+            return "redirect:/";
+        }
+    }
     @GetMapping("/login")
     public String login (){
         return "front-end/login";

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "staff")
+@Table(name = "manager")
 @Builder
 public class Manager {
     @Id
@@ -29,4 +29,7 @@ public class Manager {
 
     @Column(name = "salary")
     private double salary;
+
+    @Column(name = "password")
+    private String password;
 }

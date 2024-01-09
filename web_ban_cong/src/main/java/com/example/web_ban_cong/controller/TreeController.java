@@ -4,8 +4,10 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.web_ban_cong.model.*;
 import com.example.web_ban_cong.repository.TreeImageRepository;
+import com.example.web_ban_cong.repository.WishlistTreeRepository;
 import com.example.web_ban_cong.service.CategoryTreeService;
 import com.example.web_ban_cong.service.TreeService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +30,8 @@ public class TreeController {
     private CategoryTreeService categoryTreeService;
     @Autowired
     private TreeImageRepository treeImageRepository;
+    @Autowired
+    private WishlistTreeRepository wishlistTreeRepository;
     @GetMapping("/all")
     public String allTree(Model model){
         List<Tree> trees =  treeService.getAllTree();
@@ -61,7 +66,16 @@ public class TreeController {
 
     }
     @GetMapping("/category/{categoryId}")
-    public String treeByCategory( @PathVariable("categoryId") Long id,Model model){
+    public String treeByCategory(@PathVariable("categoryId") Long id, Model model, HttpSession session){
+        List<Tree> wishlistTr = new ArrayList<>();
+        User user = (User) session.getAttribute("user");
+        if(user != null) {
+            List<WishlistTree> wishlistTrees = wishlistTreeRepository.findByUserId(user.getId());
+            for (WishlistTree wishlistTree:
+                    wishlistTrees) {
+                wishlistTr.add(wishlistTree.getTree());
+            }
+        }
         List<CategoryTree> categoryTrees = categoryTreeService.getAllCategory();
         List<Tree> trees;
         if(id == 0){
@@ -69,6 +83,7 @@ public class TreeController {
         }else {
             trees = treeService.getTreeByCategory(id);
         }
+        model.addAttribute("wishlistTrees", wishlistTr);
         model.addAttribute("categoryId", id);
         model.addAttribute("categoryTrees", categoryTrees);
         model.addAttribute("trees", trees);

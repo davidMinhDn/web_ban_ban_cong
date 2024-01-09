@@ -2,12 +2,11 @@ package com.example.web_ban_cong.controller;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.example.web_ban_cong.model.Category;
-import com.example.web_ban_cong.model.Product;
-import com.example.web_ban_cong.model.ProductImage;
+import com.example.web_ban_cong.model.*;
 import com.example.web_ban_cong.repository.*;
 import com.example.web_ban_cong.service.CategoryService;
 import com.example.web_ban_cong.service.ProductService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,6 +30,8 @@ public class ProductController {
     private Cloudinary cloudinary;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private WishListProductRepository wishListProductRepository;
 
     @GetMapping("/detail/{product_id}")
     public String detailProduct(@PathVariable(name = "product_id") Long id, Model model){
@@ -135,7 +136,16 @@ public class ProductController {
         return ResponseEntity.ok("Sản phẩm đã được xóa thành công");
     }
     @GetMapping("/category/{categoryId}")
-    public String displayProductByCategory(@PathVariable(name = "categoryId") Long id, Model model){
+    public String displayProductByCategory(@PathVariable(name = "categoryId") Long id, Model model, HttpSession session){
+        List<Product> wishlistPro = new ArrayList<>();
+        User user = (User) session.getAttribute("user");
+        if(user != null) {
+            List<WishlistProduct> wishlistProducts = wishListProductRepository.findByUserId(user.getId());
+            for (WishlistProduct wishlistProduct:
+                 wishlistProducts) {
+                wishlistPro.add(wishlistProduct.getProduct());
+            }
+        }
         List<Category> categories = categoryService.getAllCategory();
         List<Product> products ;
         if(id == 0){
@@ -143,6 +153,7 @@ public class ProductController {
         }else {
             products = productRepository.findByCategory_id(id);
         }
+        model.addAttribute("wishlistProducts", wishlistPro);
         model.addAttribute("categoryId", id);
         model.addAttribute("categories", categories);
         model.addAttribute("products", products);

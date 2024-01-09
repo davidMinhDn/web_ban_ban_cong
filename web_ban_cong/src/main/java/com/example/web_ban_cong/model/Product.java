@@ -77,4 +77,7 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<Combo> combos = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "products")
+    private List<User> users = new ArrayList<>();
+
 }

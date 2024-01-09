@@ -666,9 +666,26 @@
                                         </li>
 
                                         <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
-                                            <a href="wishlist.html" class="notifi-wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
+                                            <div th:if="${session.user != null}">
+                                                <div th:if="${wishlistProducts.contains(product)}">
+                                                    <a class="notifi-wishlist" th:onclick="'delWishlistPro(' + ${product.id} + ')'">
+                                                        <i data-feather="heart" style="color: red;" th:id="'wishlist'+${product.id}"></i>
+                                                    </a>
+                                                </div>
+                                                <div th:if="${!wishlistProducts.contains(product)}">
+                                                    <a class="notifi-wishlist" th:onclick="'addWishlistPro(' + ${product.id} + ')'">
+                                                        <i data-feather="heart" th:id="'wishlist'+${product.id}"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div th:if="${session.user == null}">
+                                                <!-- Nếu session.user không phải là null -->
+                                                <a href="/login" class="notifi-wishlist">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -1321,27 +1338,43 @@
 
 <!-- Bg overlay Start -->
 <div class="bg-overlay"></div>
-<!-- Bg overlay End -->
-<!--<script>-->
 
+<script>
+    function addWishlistPro(id){
+        var heartIcon = document.getElementById('wishlist' + id);
+        $.ajax({
+            type: "POST", // Phương thức yêu cầu
+            url: "/wishlist/product/add/" + id, // URL của yêu cầu
+            success: function (data, textStatus, xhr) {
+                if (heartIcon) {
+                    // Thực hiện thay đổi màu sắc hoặc thêm lớp CSS ở đây
+                    heartIcon.style.color = 'red';
+                    // hoặc heartIcon.classList.add('red-heart');
+                    // Nếu bạn đang sử dụng Feather Icons, hãy sử dụng feather.replace() sau khi thay đổi
+                    feather.replace();
+                }
+            }
+        });
 
-<!--    function fillProduct(categoryId){-->
-<!--        $.ajax({-->
-<!--            type: "GET",-->
-<!--            url: "/product/fillCategory/" + categoryId,-->
-<!--            success: function (data) {-->
-<!--                var row = document.getElementById("fillProduct");-->
+    }
 
-<!--                row.innerHTML = data;-->
-<!--                $.getScript("../../static/js/feather/feather-icon.js", function () {-->
-<!--                    console.log("dsfhgsydfgsrehgf")-->
-<!--                });-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
-
-<!-- latest jquery-->
+    function delWishlistPro(id){
+        var heartIcon = document.getElementById('wishlist' + id);
+        $.ajax({
+            type: "POST", // Phương thức yêu cầu
+            url: "/wishlist/product/add/" + id, // URL của yêu cầu
+            success: function (data, textStatus, xhr) {
+                if (heartIcon) {
+                    // Thực hiện thay đổi màu sắc hoặc thêm lớp CSS ở đây
+                    heartIcon.style.color = 'black';
+                    // hoặc heartIcon.classList.add('red-heart');
+                    // Nếu bạn đang sử dụng Feather Icons, hãy sử dụng feather.replace() sau khi thay đổi
+                    feather.replace();
+                }
+            }
+        });
+    }
+</script>
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
 <!-- jquery ui-->

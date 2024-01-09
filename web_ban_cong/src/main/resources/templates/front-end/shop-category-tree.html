@@ -666,9 +666,26 @@
                                         </li>
 
                                         <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
-                                            <a href="wishlist.html" class="notifi-wishlist">
-                                                <i data-feather="heart"></i>
-                                            </a>
+                                            <div th:if="${session.user != null}">
+                                                <div th:if="${wishlistProducts.contains(product)}">
+                                                    <a class="notifi-wishlist" th:onclick="'delWishlistPro(' + ${product.id} + ')'">
+                                                        <i data-feather="heart" style="color: red;" th:id="'wishlist'+${product.id}"></i>
+                                                    </a>
+                                                </div>
+                                                <div th:if="${!wishlistProducts.contains(product)}">
+                                                    <a class="notifi-wishlist" th:onclick="'addWishlistPro(' + ${product.id} + ')'">
+                                                        <i data-feather="heart" th:id="'wishlist'+${product.id}"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div th:if="${session.user == null}">
+                                                <!-- Nếu session.user không phải là null -->
+                                                <a href="/login" class="notifi-wishlist">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+
                                         </li>
                                     </ul>
                                 </div>
